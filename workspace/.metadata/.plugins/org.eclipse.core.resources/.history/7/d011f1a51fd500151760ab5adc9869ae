@@ -1,0 +1,119 @@
+package org.usfirst.frc.team3459.robot;
+
+import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DriverStation;
+
+public class Shooter {
+	public static final double INSPEED = -0.6;
+	public static final double OUTSPEED = 1;
+	
+	public static final long FIREDURATION = 1000;
+	
+	public enum Mode {SHOOTUP,SHOOTDOWN,INTAKE,DISABLE}
+	public enum Override {DOWN,UP,NONE};
+
+	Mode mode = Mode.DISABLE;
+	Override override = Override.NONE;
+	boolean enteringMode = false;
+	
+	boolean startFire = false;
+	boolean firing = false;
+	long startShootDown = System.currentTimeMillis();
+	//***************************************************************************************
+	
+	CANTalon motor1, motor2;
+	Trigger trigger;
+	
+	public Shooter(int m1, int m2, int s1) {
+		motor1 = new CANTalon(m1);
+		motor2 = new CANTalon(m2);
+		trigger = new Trigger(s1);
+	}
+	
+	public void update() {
+		trigger.update();
+		
+		switch(override) {
+		case DOWN:
+			
+			break;
+		
+		case UP:
+			
+			break;
+			
+		case NONE:
+			switch(mode) {
+			case DISABLE:
+				if(enteringMode) {
+					setWheels(0);
+					enteringMode = false;
+					return;
+				}
+				break;
+			
+			case INTAKE:
+				if(enteringMode) {
+					enteringMode = false;
+					return;
+				}
+				
+				setWheels(INSPEED);
+				break;
+			
+			case SHOOTUP:
+				if(enteringMode) {
+					setWheels(0);
+					enteringMode = false;
+					return;
+				}
+				
+				if(startFire) {
+					trigger.fire();
+					startFire = false;
+				}
+				setWheels(OUTSPEED);
+				break;
+			
+			case SHOOTDOWN:
+				if(enteringMode) {
+					setWheels(0);
+					enteringMode = false;
+					return;
+				}
+				
+				if(startFire) {
+					startShootDown = System.currentTimeMillis();
+					setWheels(OUTSPEED);
+					startFire = false;
+					firing = true;
+				}
+				
+				if(firing == true && System.currentTimeMillis()-startShootDown > FIREDURATION) {
+					setWheels(0);
+					firing = false;
+				}
+				break;
+			}
+			break;
+		}
+	}
+	
+	public void setWheels(double val) {
+		motor1.set(val);
+		motor2.set(val);
+	}
+	
+	public void setState(Mode m) {
+		mode = m;
+		enteringMode = true;
+	}
+	
+	public void setOverride(Override o) { 
+		override = o;
+	}
+	
+	public void fire() {
+		startFire = true;
+	}
+}

@@ -1,0 +1,30 @@
+
+package org.usfirst.frc.team3459.robot;
+
+
+import edu.wpi.first.wpilibj.SampleRobot;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Timer;
+
+public class Robot extends SampleRobot {
+    RobotDrive drive;
+    Joystick leftStick;
+    Joystick rigthStick;
+
+    public Robot() {
+        drive = new RobotDrive(0, 1);
+        drive.setExpiration(0.1);
+        leftStick = new Joystick(0);
+    }
+
+    public void autonomous() {
+    }
+
+    public void operatorControl() {
+        while (isOperatorControl() && isEnabled()) {
+            
+            Timer.delay(0.005);
+        }
+    }
+}

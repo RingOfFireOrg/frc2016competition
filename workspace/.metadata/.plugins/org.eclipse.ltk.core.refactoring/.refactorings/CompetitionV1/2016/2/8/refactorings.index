@@ -1,0 +1,13 @@
+1455674300317	Rename method 'setShoot'
+1455674306806	Rename method 'setPickup'
+1455674699291	Rename field 'state'
+1455674715663	Rename enum constant 'PICKUP'
+1455675877924	Rename field 'fire'
+1455676052908	Rename field 'enteringState'
+1455676290929	Delete element
+1455676472073	Rename field 'myRobot'
+1455676480516	Rename field 'stick'
+1455676590259	Move compilation units
+1455676595750	Delete element
+1455677022985	Rename field 'enteringMode'
+1455677111990	Rename method 'setState'

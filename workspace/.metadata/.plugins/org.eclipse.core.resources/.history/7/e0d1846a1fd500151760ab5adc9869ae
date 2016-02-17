@@ -1,0 +1,12 @@
+package org.usfirst.frc.team3459.robot;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+
+public class Tilter {
+	
+	DoubleSolenoid solenoid;
+	
+	public Tilter(int p1, int p2) {
+		solenoid = new DoubleSolenoid(p1,p2);
+	}
+}

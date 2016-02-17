@@ -1,0 +1,10 @@
+package org.usfirst.frc.team3459.robot;
+
+public class Tilter {
+	
+	DoubleSolenoid solenoid;
+	
+	public Tilter(int p1, int p2) {
+		
+	}
+}

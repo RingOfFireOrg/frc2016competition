@@ -9194,3 +9194,269 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-18 18:58:59.712
 !MESSAGE Installedjava
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-18 20:27:46.924
+!MESSAGE Preferences initialized.
+
+!ENTRY org.eclipse.jface 4 0 2016-02-18 20:27:54.553
+!MESSAGE java.lang.ArrayIndexOutOfBoundsException: -1
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at java.util.ArrayList.elementData(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at edu.wpi.first.wpilib.plugins.core.preferences.ComboFieldEditor.getChoice(ComboFieldEditor.java:30)
+	at edu.wpi.first.wpilib.plugins.core.preferences.ComboFieldEditor.doStore(ComboFieldEditor.java:63)
+	at org.eclipse.jface.preference.FieldEditor.store(FieldEditor.java:683)
+	at org.eclipse.jface.preference.FieldEditorPreferencePage.performOk(FieldEditorPreferencePage.java:347)
+	at edu.wpi.first.wpilib.plugins.core.preferences.WPILibPreferencePage.performOk(WPILibPreferencePage.java:96)
+	at org.eclipse.jface.preference.PreferenceDialog$12.run(PreferenceDialog.java:992)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:178)
+	at org.eclipse.jface.preference.PreferenceDialog.okPressed(PreferenceDialog.java:971)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.okPressed(FilteredPreferenceDialog.java:460)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.okPressed(WorkbenchPreferenceDialog.java:174)
+	at org.eclipse.jface.preference.PreferenceDialog.buttonPressed(PreferenceDialog.java:236)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:832)
+	at org.eclipse.jface.window.Window.open(Window.java:808)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:221)
+	at org.eclipse.ui.internal.OpenPreferencesAction.run(OpenPreferencesAction.java:66)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:519)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4172)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3761)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 20:28:04.992
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\FRC2016\workspace\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 20:28:04.993
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY org.eclipse.debug.ui 4 0 2016-02-18 20:28:35.691
+!MESSAGE Launch shortcut 'edu.wpi.first.wpilib.plugins.cpp.launching.deploy' enablement expression caused exception. Shortcut was removed.
+!STACK 1
+org.eclipse.core.runtime.CoreException: No property tester contributes a property org.eclipse.core.resources.projectNature to type class org.eclipse.jdt.internal.core.JavaProject
+	at org.eclipse.core.internal.expressions.TypeExtensionManager.getProperty(TypeExtensionManager.java:123)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:96)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.IterateExpression.evaluate(IterateExpression.java:150)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.WithExpression.evaluate(WithExpression.java:72)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.EnablementExpression.evaluate(EnablementExpression.java:53)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchShortcutExtension.evalEnablementExpression(LaunchShortcutExtension.java:281)
+	at org.eclipse.debug.ui.actions.ContextualLaunchAction.isApplicable(ContextualLaunchAction.java:287)
+	at org.eclipse.debug.ui.actions.ContextualLaunchAction.fillMenu(ContextualLaunchAction.java:218)
+	at org.eclipse.debug.ui.actions.ContextualLaunchAction$1.menuShown(ContextualLaunchAction.java:141)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:255)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1085)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1070)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:782)
+	at org.eclipse.jface.action.ActionContributionItem.copyMenu(ActionContributionItem.java:1276)
+	at org.eclipse.jface.action.ActionContributionItem.handleShowProxy(ActionContributionItem.java:1256)
+	at org.eclipse.jface.action.ActionContributionItem.access$4(ActionContributionItem.java:1245)
+	at org.eclipse.jface.action.ActionContributionItem$8.handleEvent(ActionContributionItem.java:1218)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1085)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Control.WM_INITMENUPOPUP(Control.java:4963)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4639)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+	at org.eclipse.swt.internal.win32.OS.TrackPopupMenu(Native Method)
+	at org.eclipse.swt.widgets.Menu._setVisible(Menu.java:256)
+	at org.eclipse.swt.widgets.Display.runPopups(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3755)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+!SUBENTRY 1 org.eclipse.core.expressions 4 201 2016-02-18 20:28:35.692
+!MESSAGE No property tester contributes a property org.eclipse.core.resources.projectNature to type class org.eclipse.jdt.internal.core.JavaProject
+
+!ENTRY org.eclipse.debug.ui 4 0 2016-02-18 20:28:35.693
+!MESSAGE Launch shortcut 'edu.wpi.first.wpilib.plugins.cpp.launching.simulate' enablement expression caused exception. Shortcut was removed.
+!STACK 1
+org.eclipse.core.runtime.CoreException: No property tester contributes a property org.eclipse.core.resources.projectNature to type class org.eclipse.jdt.internal.core.JavaProject
+	at org.eclipse.core.internal.expressions.TypeExtensionManager.getProperty(TypeExtensionManager.java:123)
+	at org.eclipse.core.internal.expressions.TestExpression.evaluate(TestExpression.java:96)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.AndExpression.evaluate(AndExpression.java:29)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.IterateExpression.evaluate(IterateExpression.java:150)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.WithExpression.evaluate(WithExpression.java:72)
+	at org.eclipse.core.internal.expressions.CompositeExpression.evaluateAnd(CompositeExpression.java:53)
+	at org.eclipse.core.internal.expressions.EnablementExpression.evaluate(EnablementExpression.java:53)
+	at org.eclipse.debug.internal.ui.launchConfigurations.LaunchShortcutExtension.evalEnablementExpression(LaunchShortcutExtension.java:281)
+	at org.eclipse.debug.ui.actions.ContextualLaunchAction.isApplicable(ContextualLaunchAction.java:287)
+	at org.eclipse.debug.ui.actions.ContextualLaunchAction.fillMenu(ContextualLaunchAction.java:218)
+	at org.eclipse.debug.ui.actions.ContextualLaunchAction$1.menuShown(ContextualLaunchAction.java:141)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:255)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1085)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1070)
+	at org.eclipse.swt.widgets.Widget.notifyListeners(Widget.java:782)
+	at org.eclipse.jface.action.ActionContributionItem.copyMenu(ActionContributionItem.java:1276)
+	at org.eclipse.jface.action.ActionContributionItem.handleShowProxy(ActionContributionItem.java:1256)
+	at org.eclipse.jface.action.ActionContributionItem.access$4(ActionContributionItem.java:1245)
+	at org.eclipse.jface.action.ActionContributionItem$8.handleEvent(ActionContributionItem.java:1218)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4353)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1061)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1085)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Control.WM_INITMENUPOPUP(Control.java:4963)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4639)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+	at org.eclipse.swt.internal.win32.OS.TrackPopupMenu(Native Method)
+	at org.eclipse.swt.widgets.Menu._setVisible(Menu.java:256)
+	at org.eclipse.swt.widgets.Display.runPopups(Display.java:4213)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3755)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1151)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+!SUBENTRY 1 org.eclipse.core.expressions 4 201 2016-02-18 20:28:35.694
+!MESSAGE No property tester contributes a property org.eclipse.core.resources.projectNature to type class org.eclipse.jdt.internal.core.JavaProject
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 20:28:37.495
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\FRC2016\workspace\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 20:28:37.496
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 20:39:24.271
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\FRC2016\workspace\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 20:39:24.272
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 21:51:04.684
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\FRC2016\workspace\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 21:51:04.685
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 21:52:44.679
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\FRC2016\workspace\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 21:52:44.679
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 21:57:50.848
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\FRC2016\workspace\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 21:57:50.848
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 21:59:02.358
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\FRC2016\workspace\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 21:59:02.358
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 22:00:08.601
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\FRC2016\workspace\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 22:00:08.602
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 22:10:52.522
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\FRC2016\workspace\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 22:10:52.522
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 22:19:47.382
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\FRC2016\workspace\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 22:19:47.383
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 22:29:20.933
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\FRC2016\workspace\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-02-18 22:29:20.933
+!MESSAGE Targets: deploy, Mode: run

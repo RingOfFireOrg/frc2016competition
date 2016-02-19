@@ -3,7 +3,7 @@ package org.usfirst.frc.team3459.robot;
 import edu.wpi.first.wpilibj.CANTalon;
 
 public class Shooter {
-	public static final double INSPEED = -0.6;
+	public static final double INSPEED = -0.6;		//speed calibration
 	public static final double OUTSPEED = 1;
 	public static final double STOP = 0;
 	private double lastSpeed = 0;
@@ -19,7 +19,10 @@ public class Shooter {
 	
 	private boolean startFire = false;
 	private boolean firing = false;
-	private long startShootDown = System.currentTimeMillis();
+	private long startFireDown = System.currentTimeMillis();
+	
+	private long startShootUp = 0;
+	private long startTimeShootUp = 1000;
 	//***************************************************************************************
 	
 	private CANTalon motor1, motor2;
@@ -30,7 +33,7 @@ public class Shooter {
 		motor1 = new CANTalon(m1);
 		motor2 = new CANTalon(m2);
 		trigger = new Trigger(s1);
-		tilter = new Tilter(t1,t2,false);
+		tilter = new Tilter(t1,t2,false);		//invert tilter direction (change "false" to "true")
 	}
 	
 	public void update() {
@@ -48,7 +51,18 @@ public class Shooter {
 		
 		case SHOOTUP:
 			tilter.setUp();
-			setWheels(OUTSPEED);
+			
+			if(changingMode) {
+				startShootUp = System.currentTimeMillis();
+				changingMode = false;
+				return;
+			}
+			
+			if(System.currentTimeMillis()-startShootUp > startTimeShootUp) {
+				setWheels(OUTSPEED);
+			} else {
+				setWheels(STOP);
+			}
 			
 			if(startFire) {
 				trigger.fire();
@@ -66,13 +80,13 @@ public class Shooter {
 			}
 			
 			if(startFire) {
-				startShootDown = System.currentTimeMillis();
+				startFireDown = System.currentTimeMillis();
 				setWheels(OUTSPEED);
 				startFire = false;
 				firing = true;
 			}
 			
-			if(firing == true && System.currentTimeMillis()-startShootDown > FIREDURATION) {
+			if(firing == true && System.currentTimeMillis()-startFireDown > FIREDURATION) {
 				setWheels(STOP);
 				firing = false;
 			}
@@ -94,7 +108,7 @@ public class Shooter {
 		if(lastSpeed == val) 
 			return;
 		
-		motor1.set(val);
+		motor1.set(-val);
 		motor2.set(val);
 		
 		lastSpeed = val;

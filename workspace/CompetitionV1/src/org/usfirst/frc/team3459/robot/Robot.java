@@ -32,8 +32,8 @@ public class Robot extends SampleRobot {
 
         fireB = new JoystickButton(controlStick,1);
         shootUpB = new JoystickButton(controlStick,5);
-        shootDownB = new JoystickButton(controlStick,7);
-        intakeB = new JoystickButton(controlStick,8);
+        shootDownB = new JoystickButton(controlStick,3);
+        intakeB = new JoystickButton(controlStick,4);
         disableB = new JoystickButton(controlStick,2);
         
         downB = new JoystickButton(controlStick,10);
@@ -52,6 +52,7 @@ public class Robot extends SampleRobot {
         	
             Timer.delay(0.005);
         }
+        shooter.setMode(Shooter.Mode.DISABLE);
     }
     
     public void updateShooter() {
@@ -90,6 +91,6 @@ public class Robot extends SampleRobot {
     }
     
     public void updateDrive() {
-    	drive.tankDrive(leftStick.getY(), rightStick.getY());
+    	drive.tankDrive(-leftStick.getY(), -rightStick.getY());
     }
 }

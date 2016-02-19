@@ -1,8 +1,0 @@
-package org.usfirst.frc.team3459.robot;
-
-public class Tilter {
-	
-	public Tilter(int p1, int p2) {
-		
-	}
-}

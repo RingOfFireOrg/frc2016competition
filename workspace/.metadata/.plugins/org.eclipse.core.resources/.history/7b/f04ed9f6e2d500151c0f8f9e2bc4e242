@@ -1,0 +1,6 @@
+
+public class C2 {
+	public static void a() {
+		Main.main(null);
+	}
+}

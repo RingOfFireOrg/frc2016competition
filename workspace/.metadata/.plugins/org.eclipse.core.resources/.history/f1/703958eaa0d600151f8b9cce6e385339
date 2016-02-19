@@ -1,0 +1,9 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Person jimbo = new Person("Jimbo",20);
+		System.out.println(jimbo.getAge());
+		System.out.println(jimbo.canDrink());
+	}
+}

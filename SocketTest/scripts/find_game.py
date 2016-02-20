@@ -2,6 +2,7 @@
 import numpy as np
 import cv2
 import argparse
+import os
  
 # load the games image
 image = cv2.imread("tower.jpeg")
@@ -43,3 +44,4 @@ approx = cv2.approxPolyDP(c, 0.05 * peri, True)
 cv2.drawContours(resized, [approx], -1, (255, 0, 0), 4)
 cv2.imshow("Resized", resized)
 cv2.waitKey(0)
+

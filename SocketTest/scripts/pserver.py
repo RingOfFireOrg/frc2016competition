@@ -25,20 +25,28 @@ while True:
         while True:
             data = connection.recv(16)
             print >>sys.stderr, 'received "%s"' % data
+            
+            fo = open("rdfile.txt", "r")
+            msg = fo.read()
+            print "msg:", msg
+            # Close opend file
+            fo.close()
+            
             if data:
-            	if data == 'isOnTarget\n':
-            	    print >>sys.stderr, 'matched isOnTarget'
-            	    data = 'yes: isOnTarget\n'
-                elif data == 'whatSpeed\n':
-            	    print >>sys.stderr, 'matched whatSpeed' 
-            	    data = '100%: whatSpeed\n'  
-            	else:         	    
-            	    print >>sys.stderr, 'sending data back to the client'
-            	    data = 'Not Supported\n'
-                connection.sendall(data)
+                 if data == 'isOnTarget\n':
+                     print >>sys.stderr, 'matched isOnTarget'
+                     data = msg
+                 elif data == 'whatSpeed\n':
+                     print >>sys.stderr, 'matched whatSpeed' 
+                     data = msg  
+                 else:                  
+                     print >>sys.stderr, 'sending data back to the client'
+                     data = 'Not Supported\n'
+                 connection.sendall(data)            
             else:
                 print >>sys.stderr, 'no more data from', client_address
                 break
+            
             
     finally:
         # Clean up the connection

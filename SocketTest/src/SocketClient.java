@@ -13,7 +13,7 @@ public class SocketClient {
 	private static final Point UPPERRIGHT = new Point(1, 1);
 	private static final Point LOWERRIGHT = new Point(1, -1);
 	private static final Point LOWERLEFT = new Point(-1, -1);
-
+        private static final String HIWORLD = "whatSpeed\n";
 	public static void main(String[] args) {
 
 		byte[] localIP = new byte[] { 127, 0, 0, 1 }; // Fix this address to
@@ -28,12 +28,12 @@ public class SocketClient {
 
 			InputStream input = s.getInputStream();
 			OutputStream output = s.getOutputStream();
-			
+			output.write(HIWORLD.getBytes());
+			output.flush();
 			InputStreamReader reader = new InputStreamReader(input);
 			BufferedReader br = new BufferedReader(reader);
 			
 			System.out.println(br.readLine());
-
 			s.close();
 
 		} catch (UnknownHostException e) {

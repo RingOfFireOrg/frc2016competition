@@ -1,9 +1,9 @@
-# import the necessary packages
+#import the necessary packages
 import numpy as np
 import cv2
 import argparse
 import os
-import imutils 
+import imutils
 
 # load the games image
 #image = cv2.imread("tower.jpeg")
@@ -13,16 +13,18 @@ while True:
     #grabs current frame
     (grabbed, frame) = camera.read()
 
+    print frame
+
     #resizes video
     frame = imutils.resize(frame, width = 300)
     
     #resizes image
-    #r = 500.0 / image.shape[1]
-    #dim = (500, int(image.shape[0] * r))
+    #r = 500.0 / frame.shape[1]
+    #dim = (500, int(frame.shape[0] * r))
  
 
-    #resized = cv2.resize(image, dim, interpolation = cv2.INTER_AREA)
-    #cv2.imshow("resized", resized)
+    #frame = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)
+    #cv2.imshow("frame", frame)
     #cv2.waitKey(0)
     # find the red color game in the image
     upper = [200,250,0]
@@ -52,6 +54,6 @@ while True:
         approx = cv2.approxPolyDP(c, 0.05 * peri, True)
  
         # draw a green bounding box surrounding the red game
-        cv2.drawContours(resized, [approx], -1, (255, 0, 0), 4)
+        cv2.drawContours(frame, [approx], -1, (255, 0, 0), 4)
     cv2.imshow("Frame", frame)
     cv2.waitKey(1)

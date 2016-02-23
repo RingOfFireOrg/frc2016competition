@@ -6,11 +6,11 @@ public class Tilter {
 	
 	DoubleSolenoid solenoid;
 	
-	public Tilter(int p1, int p2, boolean inversion) {
+	public Tilter(int p0, int p1, boolean inversion) {
 		if(!inversion) {
-			solenoid = new DoubleSolenoid(p1,p2);
+			solenoid = new DoubleSolenoid(p0,p1);
 		} else { 
-			solenoid = new DoubleSolenoid(p2,p1);
+			solenoid = new DoubleSolenoid(p1,p0);
 		}
 	}
 	

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3459.robot;
+package org.usfirst.frc.team3459.robot;	
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
@@ -43,7 +43,7 @@ public class Robot extends SampleRobot {
 		downB = new JoystickButton(controlStick, 11);
 		upB = new JoystickButton(controlStick, 12);
 
-		shooter = new Shooter(10, 11, 3, 0, 1);
+		shooter = new Shooter(14, 11, 3, 0, 1);
 	}
 
 	public void autonomous() {
@@ -67,11 +67,11 @@ public class Robot extends SampleRobot {
 	public void updateShooter() {
 		shooter.update();
 
-		if (fireB.get()) {
+	if (fireB.get()) {
 			shooter.fire();
 		}
 
-		int buttonsPressed = (shootUpB.get() ? 1 : 0)
+	int buttonsPressed = (shootUpB.get() ? 1 : 0)
 				+ (shootDownB.get() ? 1 : 0) + (intakeB.get() ? 1 : 0)
 				+ (disableB.get() ? 1 : 0) + (downB.get() ? 1 : 0)
 				+ (upB.get() ? 1 : 0);
@@ -82,9 +82,11 @@ public class Robot extends SampleRobot {
 
 		if (shootUpB.get()) {
 			shooter.setMode(Shooter.Mode.SHOOTUP);
+			shooter.tilter.setUp();
 		}
 		if (shootDownB.get()) {
 			shooter.setMode(Shooter.Mode.SHOOTDOWN);
+			shooter.tilter.setDown();
 		}
 		if (intakeB.get()) {
 			shooter.setMode(Shooter.Mode.INTAKE);

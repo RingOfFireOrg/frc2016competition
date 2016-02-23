@@ -27,7 +27,7 @@ public class Shooter {
 	
 	private CANTalon motor1, motor2;
 	private Trigger trigger;
-	private Tilter tilter;
+	public Tilter tilter;
 	
 	public Shooter(int m1, int m2, int s1, int t1, int t2) {
 		motor1 = new CANTalon(m1);

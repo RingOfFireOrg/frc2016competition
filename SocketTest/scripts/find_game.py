@@ -57,3 +57,7 @@ while True:
         cv2.drawContours(frame, [approx], -1, (255, 0, 0), 4)
     cv2.imshow("Frame", frame)
     cv2.waitKey(1)
+    #  decide if it's a hit or not
+    #  write out the decision to a file, using a lock
+    #  start over in the loop
+

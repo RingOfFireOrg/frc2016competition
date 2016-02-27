@@ -20,9 +20,10 @@ public class Shooter {
 	private boolean startFire = false;
 	private boolean firing = false;
 	private long startFireDown = System.currentTimeMillis();
+	private long startDown = System.currentTimeMillis();
 	
 	private long startShootUp = 0;
-	private long startTimeShootUp = 1000;
+	private long startTimeShootUp = 2000;
 	//***************************************************************************************
 	
 	private CANTalon motor1, motor2;
@@ -71,11 +72,10 @@ public class Shooter {
 			break;
 		
 		case SHOOTDOWN:
-			tilter.setDown();
-			
 			if(changingMode) {
 				setWheels(STOP);
 				changingMode = false;
+				startDown = System.currentTimeMillis(); 
 				return;
 			}
 			
@@ -90,11 +90,28 @@ public class Shooter {
 				setWheels(STOP);
 				firing = false;
 			}
+
+			if(System.currentTimeMillis()-startDown > startTimeShootUp) {
+				tilter.setDown();
+			} 
+			
 			break;
 		
-		case DOWN: 
-			tilter.setDown();
-			setWheels(STOP);
+		case DOWN:
+			
+			if(changingMode) {
+				setWheels(STOP);
+				changingMode = false;
+				startDown = System.currentTimeMillis(); 
+				return;
+			}
+			
+			if(System.currentTimeMillis()-startDown > startTimeShootUp) {
+				tilter.setDown();
+			} else {
+				setWheels(STOP);
+			}
+
 			break;
 			
 		case UP:

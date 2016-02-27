@@ -19,8 +19,8 @@ public class Robot extends SampleRobot {
 	JoystickButton intakeB;
 	JoystickButton disableB;
 
-	JoystickButton downB;
 	JoystickButton upB;
+	JoystickButton downB;
 
 	Shooter shooter;
 
@@ -40,8 +40,8 @@ public class Robot extends SampleRobot {
 		intakeB = new JoystickButton(controlStick, 4);
 		disableB = new JoystickButton(controlStick, 2);
 
-		downB = new JoystickButton(controlStick, 11);
-		upB = new JoystickButton(controlStick, 12);
+		upB = new JoystickButton(controlStick, 11);
+		downB = new JoystickButton(controlStick, 12);
 
 		shooter = new Shooter(14, 11, 3, 0, 1);
 	}
@@ -67,14 +67,14 @@ public class Robot extends SampleRobot {
 	public void updateShooter() {
 		shooter.update();
 
-	if (fireB.get()) {
+		if (fireB.get()) {
 			shooter.fire();
 		}
 
-	int buttonsPressed = (shootUpB.get() ? 1 : 0)
+		int buttonsPressed = (shootUpB.get() ? 1 : 0)
 				+ (shootDownB.get() ? 1 : 0) + (intakeB.get() ? 1 : 0)
-				+ (disableB.get() ? 1 : 0) + (downB.get() ? 1 : 0)
-				+ (upB.get() ? 1 : 0);
+				+ (disableB.get() ? 1 : 0) + (upB.get() ? 1 : 0)
+				+ (downB.get() ? 1 : 0);
 
 		if (buttonsPressed > 1) {
 			return;
@@ -82,11 +82,9 @@ public class Robot extends SampleRobot {
 
 		if (shootUpB.get()) {
 			shooter.setMode(Shooter.Mode.SHOOTUP);
-			shooter.tilter.setUp();
 		}
 		if (shootDownB.get()) {
 			shooter.setMode(Shooter.Mode.SHOOTDOWN);
-			shooter.tilter.setDown();
 		}
 		if (intakeB.get()) {
 			shooter.setMode(Shooter.Mode.INTAKE);
@@ -94,10 +92,10 @@ public class Robot extends SampleRobot {
 		if (disableB.get()) {
 			shooter.setMode(Shooter.Mode.DISABLE);
 		}
-		if (downB.get()) {
+		if (upB.get()) {
 			shooter.setMode(Shooter.Mode.UP);
 		}
-		if (upB.get()) {
+		if (downB.get()) {
 			shooter.setMode(Shooter.Mode.DOWN);
 		}
 	}

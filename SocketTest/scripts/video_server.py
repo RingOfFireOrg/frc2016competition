@@ -31,7 +31,9 @@ def gen():
         # keeps going. weird... Here we are creating a list of frames read 
         # from a file whose name stays constant but whose contents are 
         # being replaced by find_game.py every frame. probably need to move
-        # to a ramdisk to speed it all up
+        # to a ramdisk to speed it all up, all the "--frame and content type 
+        # stuff is there to trick the browser into loading new frames in a
+        # hurry
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 

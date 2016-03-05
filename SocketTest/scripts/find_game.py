@@ -11,6 +11,7 @@ from camera import VideoCamera
 # load the games image
 #image = cv2.imread("tower.jpeg")
 camera = cv2.VideoCapture(0)
+jpegframe = 0
 #loop
 while True:
     #grabs current frame
@@ -58,6 +59,10 @@ while True:
  
         # draw a green bounding box surrounding the red game
         cv2.drawContours(frame, [approx], -1, (255, 0, 0), 4)
+
+    ret, jpeg = cv2.imencode('.jpg', frame)
+    framejpeg = jpeg.tobytes()
+
     cv2.imshow("Frame", frame)
     cv2.waitKey(1)
     #  decide if it's a hit or not
@@ -93,13 +98,14 @@ while True:
         while True:
             frame = camera.get_frame()
             yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
+                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+ 
     @app.route('/video_feed')
     def video_feed():
-        return Response(gen(VideoCamera()),
-                        mimetype='multipart/x-mixed-replace; boundary=frame')
+        return Response(framejpeg,
+                         mimetype='multipart/x-mixed-replace; boundary=frame')
 
+ 
     if __name__ == '__main__':
         app.run(host='0.0.0.0', debug=True)
-
+ 

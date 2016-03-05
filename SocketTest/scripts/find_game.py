@@ -5,31 +5,25 @@ import argparse
 import os
 import imutils
 import random
+from PIL import Image
 from flask import Flask, render_template, Response
 from camera import VideoCamera
+
+#setup for video feed
 
 # load the games image
 #image = cv2.imread("tower.jpeg")
 camera = cv2.VideoCapture(0)
-jpegframe = 0
 #loop
 while True:
     #grabs current frame
     (grabbed, frame) = camera.read()
 
-    print frame
 
     #resizes video
     frame = imutils.resize(frame, width = 300)
     
-    #resizes image
-    #r = 500.0 / frame.shape[1]
-    #dim = (500, int(frame.shape[0] * r))
- 
 
-    #frame = cv2.resize(frame, dim, interpolation = cv2.INTER_AREA)
-    #cv2.imshow("frame", frame)
-    #cv2.waitKey(0)
     # find the red color game in the image
     upper = [200,250,0]
     lower = [20,180,0]
@@ -60,46 +54,27 @@ while True:
         # draw a green bounding box surrounding the red game
         cv2.drawContours(frame, [approx], -1, (255, 0, 0), 4)
 
-    ret, jpeg = cv2.imencode('.jpg', frame)
-    framejpeg = jpeg.tobytes()
+    cv2.imwrite('nextframe.jpeg', frame)
+    os.rename('nextframe.jpeg','currentframe.jpeg')
 
-    #cv2.imshow("Frame", frame)
-    cv2.waitKey(1)
+
     #  decide if it's a hit or not
-
     hit = random.random()
-
+    #  write out the decision to a file, using a lock
     if hit > 0.5:
         wrfile = open("wrfile.txt", "w")
         wrfile.write("Testing123\n")
-
         wrfile.close()
 
     else:
         wrfile = open("wrfile.txt", "w")
         wrfile.write("Testing...\n")
-
         wrfile.close()
-
         
     os.rename('wrfile.txt','rdfile.txt')
+    
+    # see the result locally
+    cv2.imshow("Frame", frame)
+    cv2.waitKey(1)
 
-    #  write out the decision to a file, using a lock
     #  start over in the loop
-
-	#  streams video
-    app = Flask(__name__)
-
-    @app.route('/')
-    def index():
-        return render_template('index.html')
-
-    @app.route('/video_feed')
-    def video_feed():
-        return Response(framejpeg,
-                         mimetype='multipart/x-mixed-replace; boundary=frame')
-
- 
-    if __name__ == '__main__':
-        app.run(host='0.0.0.0',port=12000,debug=True)
- 

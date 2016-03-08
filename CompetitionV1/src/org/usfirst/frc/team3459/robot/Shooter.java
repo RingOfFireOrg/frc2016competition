@@ -11,7 +11,7 @@ public class Shooter {
 	public static final long FIREDURATION = 1000;
 	
 	public enum Mode {
-		SHOOTUP, SHOOTDOWN, INTAKE, DOWN, UP, DISABLE
+		SHOOTUP, SHOOTDOWN, INTAKE, DOWN, UP, MOTOR_IN, MOTOR_OUT, DISABLE
 	}
 
 	private Mode mode = Mode.DISABLE;
@@ -41,6 +41,14 @@ public class Shooter {
 		trigger.update();
 		
 		switch(mode) {
+		case MOTOR_OUT:
+			setWheels(OUTSPEED);
+			break;
+		
+		case MOTOR_IN:
+			setWheels(INSPEED);
+			break;
+			
 		case DISABLE:
 			setWheels(STOP);
 			break;

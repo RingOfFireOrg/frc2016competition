@@ -22,8 +22,13 @@ public class Robot extends SampleRobot {
 	JoystickButton upB;
 	JoystickButton downB;
 
+	JoystickButton motorInB;
+	JoystickButton motorOutB;
+	
 	Shooter shooter;
-
+	
+	StateMap stateMap;
+	
 	public Robot() {
 		driveTrain = new DriveTrain(
 				new RobotDrive(0, 1), 
@@ -42,22 +47,40 @@ public class Robot extends SampleRobot {
 
 		upB = new JoystickButton(controlStick, 11);
 		downB = new JoystickButton(controlStick, 12);
+		
+		motorInB = new JoystickButton(controlStick, 13);
+		motorOutB = new JoystickButton(controlStick, 14);
 
 		shooter = new Shooter(14, 11, 3, 0, 1);
+		stateMap = new StateMap(shooter,controlStick);
 	}
 
 	public void autonomous() {
-		driveTrain.displace(1000, 1000);
+		long start = System.currentTimeMillis();
+		long elapsed;
+		long t1 = 1000;
+		long t2 = 1500;
+		
 		while(isAutonomous() && isEnabled()) {
-			driveTrain.update();
+			elapsed = System.currentTimeMillis() - start;
+			
+			if(elapsed < t1) {
+				driveTrain.tankDrive(0, 0);
+			} else if (elapsed < t2){
+				driveTrain.tankDrive(1, 1);
+			}
 		}
+		driveTrain.tankDrive(0, 0);
 	}
 
 	public void operatorControl() {
 		while (isOperatorControl() && isEnabled()) {
 			driveTrain.tankDrive(-leftStick.getY(), -rightStick.getY());
 			driveTrain.update();
+			
 			updateShooter();
+//			updateShooter2();
+//			stateMap.update();
 
 			Timer.delay(0.005);
 		}
@@ -97,6 +120,48 @@ public class Robot extends SampleRobot {
 		}
 		if (downB.get()) {
 			shooter.setMode(Shooter.Mode.DOWN);
+		}
+	}
+
+	public void updateShooter2() {
+		shooter.update();
+
+		if (fireB.get()) {
+			shooter.fire();
+		}
+
+		int buttonsPressed = (shootUpB.get() ? 1 : 0) + (shootDownB.get() ? 1 : 0) 
+				+ (intakeB.get() ? 1 : 0) + (disableB.get() ? 1 : 0) 
+				+ (upB.get() ? 1 : 0) + (downB.get() ? 1 : 0) 
+				+ (motorInB.get() ? 1 : 0) + (motorOutB.get() ? 1 : 0);
+
+		if (buttonsPressed > 1) {
+			return;
+		}
+
+		if (shootUpB.get()) {
+			shooter.setMode(Shooter.Mode.SHOOTUP);
+		}
+		if (shootDownB.get()) {
+			shooter.setMode(Shooter.Mode.SHOOTDOWN);
+		}
+		if (intakeB.get()) {
+			shooter.setMode(Shooter.Mode.INTAKE);
+		}
+		if (disableB.get()) {
+			shooter.setMode(Shooter.Mode.DISABLE);
+		}
+		if (upB.get()) {
+			shooter.setMode(Shooter.Mode.UP);
+		}
+		if (downB.get()) {
+			shooter.setMode(Shooter.Mode.DOWN);
+		}
+		if (motorInB.get()) {
+			shooter.setMode(Shooter.Mode.MOTOR_IN);
+		}
+		if (motorOutB.get()) {
+			shooter.setMode(Shooter.Mode.MOTOR_OUT);
 		}
 	}
 }

@@ -5,20 +5,95 @@ import argparse
 import os
 import imutils
 import random
+import sys
 from PIL import Image
 from flask import Flask, render_template, Response
 from camera import VideoCamera
 
 #setup for video feed
 
+#setting MinMax values for tape postion
+
+leftxmin = 140
+leftxmax = 167
+
+rightxmin = 191
+rightxmax = 218
+
+topxmin = 150
+topxmax = 212
+
+bottomxmin = 142
+bottomxmax = 214
+
+
+leftymin = 155
+leftymax = 214
+
+rightymin = 150
+rightymax = 223
+
+topymin = 149
+topymax = 209
+
+bottomymin = 176
+bottomymax = 223
+
+factormin = 1000
+factormax = 3000
+
+#making thresholds
+
+thresh = 0
+
+def threshhigh( val ):
+    return val - thresh
+
+def threshlow( val ):
+    return val + thresh
+
+def threshcheck(left, right, top, bottom):
+
+    factor = (right[0] - left[0]) * (top[0] - bottom[0])
+    print factor
+    if (left[0] >= threshlow(leftxmin) and
+       left[0] <= threshhigh(leftxmax) and
+       right[0] >= threshlow(rightxmin) and
+       right[0] <= threshhigh(rightxmax) and
+       top[0] >= threshlow(topxmin) and
+       top[0] <= threshhigh(topxmax) and
+       bottom[0] >= threshlow(bottomxmin) and
+       bottom[0] <= threshhigh(bottomxmax) and
+       left[1] >= threshlow(leftymin) and
+       left[1] <= threshhigh(leftymax) and
+       right[1] >= threshlow(rightymin) and
+       right[1] <= threshhigh(rightymax) and
+       top[1] >= threshlow(topymin) and
+       top[1] <= threshhigh(topymax) and
+       bottom[1] >= threshlow(bottomymin) and
+       bottom[1] <= threshhigh(bottomymax) and
+       factor <= factormax and
+       factor >= factormin):
+         return True
+    else:
+        return False
+
+
+#frame = cv2.imread(sys.argv[1])
+
 # load the games image
 #image = cv2.imread("tower.jpeg")
 camera = cv2.VideoCapture(0)
 #loop
 while True:
+
+
+
     #grabs current frame
     (grabbed, frame) = camera.read()
 
+
+    
 
     #resizes video
     frame = imutils.resize(frame, width = 300)
@@ -35,6 +110,11 @@ while True:
     #find contours in the masked frame and keep the largest one
     (_, cnts, _) = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,
         cv2.CHAIN_APPROX_SIMPLE)
+
+    leftmost = (0, 0)
+    rightmost = (0, 0)
+    topmost = (0, 0)
+    bottommost = (0, 0)
 
     if len(cnts) !=0:
         c = max(cnts, key=cv2.contourArea)
@@ -59,22 +139,24 @@ while True:
 
 
     #  decide if it's a hit or not
-    hit = random.random()
+    anwser = threshcheck(leftmost, rightmost, topmost, bottommost)
+
+
     #  write out the decision to a file, using a lock
-    if hit > 0.5:
+    if anwser:
         wrfile = open("wrfile.txt", "w")
-        wrfile.write("Testing123\n")
+        wrfile.write("Hit\n")
         wrfile.close()
 
     else:
         wrfile = open("wrfile.txt", "w")
-        wrfile.write("Testing...\n")
+        wrfile.write("Miss\n")
         wrfile.close()
         
     os.rename('wrfile.txt','rdfile.txt')
     
     # see the result locally
     cv2.imshow("Frame", frame)
-    cv2.waitKey(1)
-
+    cv2.waitKey(0)
+   
     #  start over in the loop

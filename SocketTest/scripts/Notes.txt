@@ -1,0 +1,9 @@
+Left x 140-167
+Left y 155-214
+Right x 191-218
+Right y 150-223
+Top x 150-212
+Top y 149-209
+Bottom x 142-214
+Bottom y 176-223
+Area always over 1000 and under 3000

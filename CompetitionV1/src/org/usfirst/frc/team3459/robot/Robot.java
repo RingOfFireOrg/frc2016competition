@@ -25,6 +25,8 @@ public class Robot extends SampleRobot {
 	JoystickButton motorInB;
 	JoystickButton motorOutB;
 	
+	JoystickButton overRide;
+	
 	Shooter shooter;
 	
 	ShooterMap stateMap;
@@ -50,6 +52,8 @@ public class Robot extends SampleRobot {
 		
 		motorInB = new JoystickButton(controlStick, 9);
 		motorOutB = new JoystickButton(controlStick, 10);
+		
+		overRide = new JoystickButton(controlStick, 7);
 
 		shooter = new Shooter(14, 11, 3, 0, 1);
 //		stateMap = new ShooterMap(shooter,controlStick);
@@ -140,7 +144,12 @@ public class Robot extends SampleRobot {
 		}
 
 		if (shootUpB.get()) {
-			shooter.setState(Shooter.State.SHOOTUP);
+			if (overRide.get()){
+				shooter.setState(Shooter.State.SHOOTUP);
+			} else {
+				// if pi is happy then
+			    // shooter.setState(Shooter.State.SHOOTUP);
+			}
 		}
 		if (shootDownB.get()) {
 			shooter.setState(Shooter.State.SHOOTDOWN);

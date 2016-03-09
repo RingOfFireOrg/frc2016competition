@@ -162,4 +162,8 @@ public class Shooter implements StateMachine<Shooter.State>{
 	public void fire() {
 		startFire = true;
 	}
+	
+	public State getState() {
+		return state;
+	}
 }

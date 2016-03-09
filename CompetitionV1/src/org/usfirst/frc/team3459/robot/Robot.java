@@ -31,6 +31,8 @@ public class Robot extends SampleRobot {
 	
 	ShooterMap stateMap;
 	
+	PiClient myPi = new PiClient();
+	
 	public Robot() {
 		driveTrain = new DriveTrain(
 				new RobotDrive(0, 1), 
@@ -62,16 +64,15 @@ public class Robot extends SampleRobot {
 	public void autonomous() {
 		long start = System.currentTimeMillis();
 		long elapsed;
-		long t1 = 1000;
-		long t2 = 1500;
+		long t1 = 20000;
 		
 		while(isAutonomous() && isEnabled()) {
 			elapsed = System.currentTimeMillis() - start;
 			
 			if(elapsed < t1) {
-				driveTrain.tankDrive(0, 0);
-			} else if (elapsed < t2){
 				driveTrain.tankDrive(1, 1);
+			} else {
+				driveTrain.tankDrive(0, 0);
 			}
 		}
 		driveTrain.tankDrive(0, 0);
@@ -131,7 +132,12 @@ public class Robot extends SampleRobot {
 		shooter.update();
 
 		if (fireB.get()) {
-			shooter.fire();
+			if(shooter.getState() == Shooter.State.SHOOTUP) {
+				if(overRide.get() || myPi.retrieveTargetingState())
+					shooter.fire();
+			} else {
+				shooter.fire();
+			}
 		}
 
 		int buttonsPressed = (shootUpB.get() ? 1 : 0) + (shootDownB.get() ? 1 : 0) 
@@ -144,12 +150,7 @@ public class Robot extends SampleRobot {
 		}
 
 		if (shootUpB.get()) {
-			if (overRide.get()){
-				shooter.setState(Shooter.State.SHOOTUP);
-			} else {
-				// if pi is happy then
-			    // shooter.setState(Shooter.State.SHOOTUP);
-			}
+			shooter.setState(Shooter.State.SHOOTUP);
 		}
 		if (shootDownB.get()) {
 			shooter.setState(Shooter.State.SHOOTDOWN);

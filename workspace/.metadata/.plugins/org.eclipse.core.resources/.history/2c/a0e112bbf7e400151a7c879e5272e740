@@ -1,0 +1,9 @@
+package org.usfirst.frc.team3459.robot;
+
+import java.util.Map;
+
+public class StateMap<T> {
+	protected Map<Integer,Shooter.State> buttonMap;
+	
+	public StateMap(StateMachine<T> stateMachine, Joystick joystick)
+}

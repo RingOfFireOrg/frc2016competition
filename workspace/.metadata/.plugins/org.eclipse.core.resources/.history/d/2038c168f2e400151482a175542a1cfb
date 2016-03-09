@@ -1,0 +1,33 @@
+package org.usfirst.frc.team3459.robot;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+public class ButtonMap { 
+	public static final int shootUpB = 5;
+	public static final int shootDownB = 3;
+	public static final int intakeB = 4;
+	public static final int disableB = 2;
+
+	public static final int upB = 11;
+	public static final int downB = 12;
+
+	public static final int motorInB = 13;
+	public static final int motorOutB = 14;
+	
+	private Map<Integer,Shooter.Mode> buttonMap;
+	
+	public ButtonMap() {
+		buttonMap = new HashMap<>();
+		buttonMap.put(shootUpB, Shooter.Mode.SHOOTUP);
+		buttonMap.put(shootDownB, Shooter.Mode.SHOOTDOWN);
+		buttonMap.put(intakeB, Shooter.Mode.INTAKE);
+		buttonMap.put(disableB, Shooter.Mode.DISABLE);
+		buttonMap.put(upB, Shooter.Mode.UP);
+		buttonMap.put(downB, Shooter.Mode.DOWN);
+		buttonMap.put(motorInB, Shooter.Mode.MOTOR_IN);
+		buttonMap.put(motorOutB, Shooter.Mode.MOTOR_OUT);
+	}
+}

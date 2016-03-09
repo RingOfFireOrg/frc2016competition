@@ -1,0 +1,16 @@
+package org.usfirst.frc.team9999.robot;
+
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+public class ButtonMap { 
+	public static final int shootUpB;
+	public static final int shootDownB;
+	public static final int intakeB;
+	public static final int disableB;
+
+	public static final int upB;
+	public static final int downB;
+
+	public static final int motorInB;
+	public static final int motorOutB;
+}

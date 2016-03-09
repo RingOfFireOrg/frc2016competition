@@ -1,0 +1,54 @@
+package org.usfirst.frc.team3459.robot;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import edu.wpi.first.wpilibj.Joystick;
+
+public class StateMap<T> { 
+	public static final int shootUpB = 5;
+	public static final int shootDownB = 3;
+	public static final int intakeB = 4;
+	public static final int disableB = 2;
+
+	public static final int upB = 11;
+	public static final int downB = 12;
+
+	public static final int motorInB = 13;
+	public static final int motorOutB = 14;
+	
+	private Map<Integer,Shooter.State> buttonMap;
+	private StateMachine<T> shooter;
+	private Joystick joystick;
+	
+	public StateMap(StateMachine<T> shooter, Joystick joystick) {
+		this.shooter = shooter;
+		this.joystick = joystick;
+		
+		buttonMap = new HashMap<>();
+		buttonMap.put(shootUpB, Shooter.State.SHOOTUP);
+		buttonMap.put(shootDownB, Shooter.State.SHOOTDOWN);
+		buttonMap.put(intakeB, Shooter.State.INTAKE);
+		buttonMap.put(disableB, Shooter.State.DISABLE);
+		buttonMap.put(upB, Shooter.State.UP);
+		buttonMap.put(downB, Shooter.State.DOWN);
+		buttonMap.put(motorInB, Shooter.State.MOTOR_IN);
+		buttonMap.put(motorOutB, Shooter.State.MOTOR_OUT);
+	}
+	
+	public void update() {
+		int buttonsPressed = 0;
+		int activeButton = 0;
+		for(Integer buttonNum : buttonMap.keySet()) {
+			if(joystick.getRawButton(buttonNum)) {
+				activeButton = buttonNum;
+				buttonsPressed++;	
+			}
+		}
+		
+		if(buttonsPressed > 1) 
+			return;
+		
+		shooter.setMode(buttonMap.get(activeButton));
+	}
+}

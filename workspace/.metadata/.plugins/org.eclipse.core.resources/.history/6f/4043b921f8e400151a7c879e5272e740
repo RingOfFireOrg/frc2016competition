@@ -1,0 +1,37 @@
+package org.usfirst.frc.team3459.robot;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import edu.wpi.first.wpilibj.Joystick;
+
+public class StateMap<T> {
+	protected Map<Integer,T> buttonMap = new HashMap<>();
+	private StateMachine stateMachine;
+	private Joystick joystick;
+	
+	public StateMap(StateMachine<T> stateMachine, Joystick joystick) {
+		this.stateMachine = stateMachine;
+		this.joystick = joystick;
+	}
+	
+	protected void put(Integer key, T value) {
+		buttonMap.put(key, value);
+	}
+	
+	public void update() {
+		int buttonsPressed = 0;
+		int activeButton = 0;
+		for(Integer buttonNum : buttonMap.keySet()) {
+			if(joystick.getRawButton(buttonNum)) {
+				activeButton = buttonNum;
+				buttonsPressed++;	
+			}
+		}
+		
+		if(buttonsPressed > 1) 
+			return;
+		
+		shooter.setState(buttonMap.get(activeButton));
+	}
+}

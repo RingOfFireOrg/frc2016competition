@@ -1,0 +1,7 @@
+package org.usfirst.frc.team3459.robot;
+
+import java.util.Map;
+
+public class StateMap<T> {
+	protected Map<Integer,Shooter.State> buttonMap;
+}

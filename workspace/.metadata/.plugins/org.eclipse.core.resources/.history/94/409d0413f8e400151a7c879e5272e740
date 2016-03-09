@@ -1,0 +1,21 @@
+package org.usfirst.frc.team3459.robot;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import edu.wpi.first.wpilibj.Joystick;
+
+public class StateMap<T> {
+	protected Map<Integer,T> buttonMap = new HashMap<>();
+	private StateMachine stateMachine;
+	private Joystick joystick;
+	
+	public StateMap(StateMachine<T> stateMachine, Joystick joystick) {
+		this.stateMachine = stateMachine;
+		this.joystick = joystick;
+	}
+	
+	protected void put(Integer key, T value) {
+		buttonMap.put(key, value);
+	}
+}

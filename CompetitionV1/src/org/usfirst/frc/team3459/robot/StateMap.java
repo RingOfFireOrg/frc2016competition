@@ -2,53 +2,88 @@ package org.usfirst.frc.team3459.robot;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import edu.wpi.first.wpilibj.Joystick;
-
-public class StateMap { 
-	public static final int shootUpB = 5;
-	public static final int shootDownB = 3;
-	public static final int intakeB = 4;
-	public static final int disableB = 2;
-
-	public static final int upB = 11;
-	public static final int downB = 12;
-
-	public static final int motorInB = 13;
-	public static final int motorOutB = 14;
-	
-	private Map<Integer,Shooter.Mode> buttonMap;
-	private Shooter shooter;
+/**
+ * @author Kyle Brown
+ *
+ * @param <S> The State Type
+ */
+public class StateMap<S> {
+	/**
+	 * The button number to State Mapping
+	 */
+	private Map<Integer,S> buttonMap = new HashMap<>();
+	/**
+	 * The lock that dictates whether the mapping can be effected
+	 */
+	private boolean lock = false;
+	/**
+	 * The keySet generated from the mapping when the StateMap is locked
+	 */
+	private Set<Integer> keySet;
+	/**
+	 * The StateMachine<T> being controlled by the StateMaps
+	 */
+	private StateMachine<S> stateMachine;
+	/**
+	 * The Joystick on which the buttons are located
+	 */
 	private Joystick joystick;
 	
-	public StateMap(Shooter shooter, Joystick joystick) {
-		this.shooter = shooter;
+	/**
+	 * Constructs a StateMap with the corresponding StateMachine and Joystick
+	 * @param stateMachine
+	 * @param joystick
+	 */
+	public StateMap(StateMachine<S> stateMachine, Joystick joystick) {
+		this.stateMachine = stateMachine;
 		this.joystick = joystick;
-		
-		buttonMap = new HashMap<>();
-		buttonMap.put(shootUpB, Shooter.Mode.SHOOTUP);
-		buttonMap.put(shootDownB, Shooter.Mode.SHOOTDOWN);
-		buttonMap.put(intakeB, Shooter.Mode.INTAKE);
-		buttonMap.put(disableB, Shooter.Mode.DISABLE);
-		buttonMap.put(upB, Shooter.Mode.UP);
-		buttonMap.put(downB, Shooter.Mode.DOWN);
-		buttonMap.put(motorInB, Shooter.Mode.MOTOR_IN);
-		buttonMap.put(motorOutB, Shooter.Mode.MOTOR_OUT);
 	}
 	
+	/**
+	 * generates a keySet from the mapping, sets the lock to true
+	 */
+	public void lock() {
+		keySet = buttonMap.keySet();
+		lock = true;
+	}
+	
+	/**
+	 * Adds a Button -> State mapping to the StateMap
+	 * @param key The button number
+	 * @param value The state
+	 */
+	protected void put(Integer key, S value) {
+		if(lock)
+			return;
+		
+		buttonMap.put(key, value);
+	}
+	
+	/**
+	 * Causes the StateMap to update the StateMachine based on the current value
+	 * of the Joystick
+	 */
 	public void update() {
-		int buttonsPressed = 0;
-		int activeButton = 0;
-		for(Integer buttonNum : buttonMap.keySet()) {
-			if(joystick.getRawButton(buttonNum)) {
-				activeButton = buttonNum;
-				buttonsPressed++;	
+		if(!lock)
+			return;
+		
+		int buttonsPressed = 0;							//The number of buttons currently pressed
+		int activeButton = 0;							//The ID of an actively pressed button
+		
+		for(Integer buttonNum : keySet) {				//For each button that is mapped
+			if(joystick.getRawButton(buttonNum)) {		//If it is pressed
+				activeButton = buttonNum;				//Give its value to activeButton
+				buttonsPressed++;						//Add 1 to buttonsPressed
 			}
 		}
 		
-		if(buttonsPressed > 1) 
-			return;
+		if(buttonsPressed > 1) 							//If more than one button is pressed
+			return;										//Stop the update
 		
-		shooter.setMode(buttonMap.get(activeButton));
+		stateMachine.setState(buttonMap.get(activeButton));	//Sets the StateMachine to have the value
+															//corresponding to the only pressed button
 	}
 }

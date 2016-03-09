@@ -2,20 +2,20 @@ package org.usfirst.frc.team3459.robot;
 
 import edu.wpi.first.wpilibj.CANTalon;
 
-public class Shooter {
-	public static final double INSPEED = -0.6;		//speed calibration
+public class Shooter implements StateMachine<Shooter.State>{
+	public static final double INSPEED = -0.6;
 	public static final double OUTSPEED = 1;
 	public static final double STOP = 0;
 	private double lastSpeed = 0;
 	
 	public static final long FIREDURATION = 1000;
 	
-	public enum Mode {
+	public enum State {
 		SHOOTUP, SHOOTDOWN, INTAKE, DOWN, UP, MOTOR_IN, MOTOR_OUT, DISABLE
 	}
 
-	private Mode mode = Mode.DISABLE;
-	private boolean changingMode = false;
+	private State state = State.DISABLE;
+	private boolean changingState = false;
 	
 	private boolean startFire = false;
 	private boolean firing = false;
@@ -40,7 +40,7 @@ public class Shooter {
 	public void update() {
 		trigger.update();
 		
-		switch(mode) {
+		switch(state) {
 		case MOTOR_OUT:
 			setWheels(OUTSPEED);
 			break;
@@ -61,9 +61,9 @@ public class Shooter {
 		case SHOOTUP:
 			tilter.setUp();
 			
-			if(changingMode) {
+			if(changingState) {
 				startShootUp = System.currentTimeMillis();
-				changingMode = false;
+				changingState = false;
 				return;
 			}
 			
@@ -80,9 +80,9 @@ public class Shooter {
 			break;
 		
 		case SHOOTDOWN:
-			if(changingMode) {
+			if(changingState) {
 				setWheels(STOP);
-				changingMode = false;
+				changingState = false;
 				startDown = System.currentTimeMillis(); 
 				return;
 			}
@@ -107,9 +107,9 @@ public class Shooter {
 		
 		case DOWN:
 			
-			if(changingMode) {
+			if(changingState) {
 				setWheels(STOP);
-				changingMode = false;
+				changingState = false;
 				startDown = System.currentTimeMillis(); 
 				return;
 			}
@@ -129,24 +129,36 @@ public class Shooter {
 		}
 	}
 	
+	/**
+	 * Sets the shooter wheels to have the same speed and oposite velocity
+	 * @param val the speed value in a -1 < x < 1 scale, absolute value indicates
+	 * speed negation flips direction
+	 */
 	public void setWheels(double val) {
 		if(lastSpeed == val) 
 			return;
 		
-		motor1.set(-val);
-		motor2.set(val);
+		motor1.set(val);
+		motor2.set(-val);
 		
 		lastSpeed = val;
 	}
 	
-	public void setMode(Mode m) {
-		if(m != mode) {
-			mode = m;
-			changingMode = true;	
+	/**
+	 * Sets the state of the Shooter
+	 * @param s
+	 */
+	public void setState(State s) {
+		if(s != state) {
+			state = s;
+			changingState = true;	
 			startFire = false;
 		}
 	}
 	
+	/**
+	 * Starts the firing process
+	 */
 	public void fire() {
 		startFire = true;
 	}

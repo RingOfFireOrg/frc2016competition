@@ -132,13 +132,14 @@ public class Robot extends SampleRobot {
 
 	public void updateShooter2() {
 		shooter.update();
-
-		if (fireB.get()) {
-			if(shooter.getState() == Shooter.State.SHOOTUP) {
-				if(overRide.get() || myPi.retrieveTargetingState())
+		
+		if (fireB.get()) {  //user said fire
+			if(shooter.getState() == Shooter.State.SHOOTUP) { //machine ready to fire
+				if(overRide.get()) {
 					shooter.fire();
-			} else {
-				shooter.fire();
+		 	    } else if (myPi.retrieveTargetingState()) {
+				    shooter.fire();
+			    }
 			}
 		}
 

@@ -13,21 +13,35 @@ public class PiClient {
 	
 	final int PORT = 5801;
 	
-	final byte[] LOCAL_IP = new byte[] { 127, 0, 0, 1 }; 
-    final byte[] REMOTE_IP = new byte[] { 10, 34, 59, 22 };
+	final byte[] LOCAL_IP = new byte[] { 10, 99, 99, 20 }; 
+    final byte[] REMOTE_IP = new byte[] { 10, 99, 99, 22 };
+    final long INTERVAL = 1000;
+    int port = 5801;
+    long lastQuery = 0;
 	
 	PiClient(){
 	
-		
 	}
 	
 	public boolean retrieveTargetingState(){
-		try {
+		 Socket s = null;
+		 long now = System.currentTimeMillis();
+		 if ((now - lastQuery) < INTERVAL) {
+			 return (false);
+		 } else {
+			 lastQuery = now;
+		 }
+		 try {
 			
 			InetAddress localAddress = InetAddress.getByAddress(LOCAL_IP);
 			InetAddress remoteAddress = InetAddress.getByAddress(REMOTE_IP);
 
-			Socket s = new Socket(remoteAddress, 3000, localAddress, 2000);
+			int localPort = port;
+			port += 1;
+			if (port > 5810) {
+				port = 5801;
+			}
+			s = new Socket(remoteAddress, 5801, localAddress, localPort);
 
 			InputStream input = s.getInputStream();
 			OutputStream output = s.getOutputStream();
@@ -37,9 +51,8 @@ public class PiClient {
 			BufferedReader br = new BufferedReader(reader);
 			
 			String answer = br.readLine();
-			s.close();
 			
-			if(answer.contains("Hit")){
+			if(answer.contains("H") ){
 				return true;
 			} else {
 				return false;
@@ -49,6 +62,15 @@ public class PiClient {
 			return false;
 		} catch (IOException e) {
 			return false;
+		}
+		finally {
+			if (s != null) {
+				try {
+			        s.close();
+				} catch (Exception e) {
+					return false;
+				}
+			}
 		}
 	}
 }

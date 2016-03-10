@@ -156,7 +156,7 @@ while True:
     os.rename('wrfile.txt','rdfile.txt')
     
     # see the result locally
-    cv2.imshow("Frame", frame)
-    cv2.waitKey(0)
+#    cv2.imshow("Frame", frame)
+    cv2.waitKey(1)
    
     #  start over in the loop

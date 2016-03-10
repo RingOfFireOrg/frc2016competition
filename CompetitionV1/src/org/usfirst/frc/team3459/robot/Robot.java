@@ -64,7 +64,7 @@ public class Robot extends SampleRobot {
 	public void autonomous() {
 		long start = System.currentTimeMillis();
 		long elapsed;
-		long t1 = 20000;
+		long t1 = 3000;
 		
 		while(isAutonomous() && isEnabled()) {
 			elapsed = System.currentTimeMillis() - start;
@@ -72,10 +72,12 @@ public class Robot extends SampleRobot {
 			if(elapsed < t1) {
 				driveTrain.tankDrive(1, 1);
 			} else {
-				driveTrain.tankDrive(0, 0);
+				driveTrain.tankDrive(0, 0);	
 			}
+			driveTrain.update();
 		}
 		driveTrain.tankDrive(0, 0);
+		driveTrain.update();
 	}
 
 	public void operatorControl() {

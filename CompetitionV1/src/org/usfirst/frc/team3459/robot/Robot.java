@@ -25,9 +25,11 @@ public class Robot extends SampleRobot {
 	JoystickButton motorInB;
 	JoystickButton motorOutB;
 	
+	JoystickButton overRide;
+	
 	Shooter shooter;
 	
-	StateMap stateMap;
+	ShooterMap stateMap;
 	
 	public Robot() {
 		driveTrain = new DriveTrain(
@@ -48,11 +50,13 @@ public class Robot extends SampleRobot {
 		upB = new JoystickButton(controlStick, 11);
 		downB = new JoystickButton(controlStick, 12);
 		
-		motorInB = new JoystickButton(controlStick, 13);
-		motorOutB = new JoystickButton(controlStick, 14);
+		motorInB = new JoystickButton(controlStick, 9);
+		motorOutB = new JoystickButton(controlStick, 10);
+		
+		overRide = new JoystickButton(controlStick, 7);
 
 		shooter = new Shooter(14, 11, 3, 0, 1);
-		stateMap = new StateMap(shooter,controlStick);
+//		stateMap = new ShooterMap(shooter,controlStick);
 	}
 
 	public void autonomous() {
@@ -78,13 +82,13 @@ public class Robot extends SampleRobot {
 			driveTrain.tankDrive(-leftStick.getY(), -rightStick.getY());
 			driveTrain.update();
 			
-			updateShooter();
-//			updateShooter2();
+//			updateShooter();
+			updateShooter2();
 //			stateMap.update();
 
 			Timer.delay(0.005);
 		}
-		shooter.setMode(Shooter.Mode.DISABLE);
+		shooter.setState(Shooter.State.DISABLE);
 	}
 
 	public void updateShooter() {
@@ -104,22 +108,22 @@ public class Robot extends SampleRobot {
 		}
 
 		if (shootUpB.get()) {
-			shooter.setMode(Shooter.Mode.SHOOTUP);
+			shooter.setState(Shooter.State.SHOOTUP);
 		}
 		if (shootDownB.get()) {
-			shooter.setMode(Shooter.Mode.SHOOTDOWN);
+			shooter.setState(Shooter.State.SHOOTDOWN);
 		}
 		if (intakeB.get()) {
-			shooter.setMode(Shooter.Mode.INTAKE);
+			shooter.setState(Shooter.State.INTAKE);
 		}
 		if (disableB.get()) {
-			shooter.setMode(Shooter.Mode.DISABLE);
+			shooter.setState(Shooter.State.DISABLE);
 		}
 		if (upB.get()) {
-			shooter.setMode(Shooter.Mode.UP);
+			shooter.setState(Shooter.State.UP);
 		}
 		if (downB.get()) {
-			shooter.setMode(Shooter.Mode.DOWN);
+			shooter.setState(Shooter.State.DOWN);
 		}
 	}
 
@@ -140,28 +144,33 @@ public class Robot extends SampleRobot {
 		}
 
 		if (shootUpB.get()) {
-			shooter.setMode(Shooter.Mode.SHOOTUP);
+			if (overRide.get()){
+				shooter.setState(Shooter.State.SHOOTUP);
+			} else {
+				// if pi is happy then
+			    // shooter.setState(Shooter.State.SHOOTUP);
+			}
 		}
 		if (shootDownB.get()) {
-			shooter.setMode(Shooter.Mode.SHOOTDOWN);
+			shooter.setState(Shooter.State.SHOOTDOWN);
 		}
 		if (intakeB.get()) {
-			shooter.setMode(Shooter.Mode.INTAKE);
+			shooter.setState(Shooter.State.INTAKE);
 		}
 		if (disableB.get()) {
-			shooter.setMode(Shooter.Mode.DISABLE);
+			shooter.setState(Shooter.State.DISABLE);
 		}
 		if (upB.get()) {
-			shooter.setMode(Shooter.Mode.UP);
+			shooter.setState(Shooter.State.UP);
 		}
 		if (downB.get()) {
-			shooter.setMode(Shooter.Mode.DOWN);
+			shooter.setState(Shooter.State.DOWN);
 		}
 		if (motorInB.get()) {
-			shooter.setMode(Shooter.Mode.MOTOR_IN);
+			shooter.setState(Shooter.State.MOTOR_IN);
 		}
 		if (motorOutB.get()) {
-			shooter.setMode(Shooter.Mode.MOTOR_OUT);
+			shooter.setState(Shooter.State.MOTOR_OUT);
 		}
 	}
 }

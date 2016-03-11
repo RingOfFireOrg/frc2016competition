@@ -87,13 +87,12 @@ camera = cv2.VideoCapture(0)
 #loop
 while True:
 
-
-
     #grabs current frame
     (grabbed, frame) = camera.read()
 
-
-    
+    print camera
+    print frame 
+    quit()
 
     #resizes video
     frame = imutils.resize(frame, width = 300)

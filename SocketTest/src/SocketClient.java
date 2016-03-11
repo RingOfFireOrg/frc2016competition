@@ -16,25 +16,28 @@ public class SocketClient {
         private static final String HIWORLD = "whatSpeed\n";
 	public static void main(String[] args) {
 
-		byte[] localIP = new byte[] { 127, 0, 0, 1 }; // Fix this address to
+		byte[] localIP = new byte[] { 10,99,99,22 }; // Fix this address to
 														// SELF - TODO
-		byte[] remoteIP = new byte[] { 127, 0, 0, 1 };
+		byte[] remoteIP = new byte[] { 10,99,99,22 };
 		try {
 			InetAddress localAddress = InetAddress.getByAddress(localIP);
 			InetAddress remoteAddress = InetAddress.getByAddress(remoteIP);
-			// SocketAddress sa = new InetSocketAddress(remoteAddress, 2000);
 
-			Socket s = new Socket(remoteAddress, 3000, localAddress, 2000);
+			Socket socket = new Socket(remoteAddress, 5801, localAddress, 2000);
 
-			InputStream input = s.getInputStream();
-			OutputStream output = s.getOutputStream();
+			InputStream input = socket.getInputStream();
+			OutputStream output = socket.getOutputStream();
 			output.write(HIWORLD.getBytes());
 			output.flush();
 			InputStreamReader reader = new InputStreamReader(input);
 			BufferedReader br = new BufferedReader(reader);
 			
-			System.out.println(br.readLine());
-			s.close();
+			String answer = br.readLine();
+                        if (answer.contains("H")) {
+			    System.out.println("Contains H");
+                        }
+			System.out.println(answer);
+			socket.close();
 
 		} catch (UnknownHostException e) {
 			e.printStackTrace();

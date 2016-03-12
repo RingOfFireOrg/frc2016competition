@@ -133,8 +133,8 @@ while True:
         # draw a green bounding box surrounding the red game
         cv2.drawContours(frame, [approx], -1, (255, 0, 0), 4)
 
-    cv2.imwrite('nextframe.jpeg', frame)
-    os.rename('nextframe.jpeg','currentframe.jpeg')
+    cv2.imwrite('/mnt/tmp/nextframe.jpeg', frame)
+    os.rename('/mnt/tmp/nextframe.jpeg','/mnt/tmp/currentframe.jpeg')
 
 
     #  decide if it's a hit or not
@@ -143,16 +143,16 @@ while True:
 
     #  write out the decision to a file, using a lock
     if anwser:
-        wrfile = open("wrfile.txt", "w")
+        wrfile = open("/mnt/tmp/wrfile.txt", "w")
         wrfile.write("Hit\n")
         wrfile.close()
 
     else:
-        wrfile = open("wrfile.txt", "w")
+        wrfile = open("/mnt/tmp/wrfile.txt", "w")
         wrfile.write("Miss\n")
         wrfile.close()
         
-    os.rename('wrfile.txt','rdfile.txt')
+    os.rename('/mnt/tmp/wrfile.txt','/mnt/tmp/rdfile.txt')
     
     # see the result locally
 #    cv2.imshow("Frame", frame)

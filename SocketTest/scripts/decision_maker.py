@@ -26,7 +26,7 @@ while True:
             data = connection.recv(16)
             print >>sys.stderr, 'received "%s"' % data
             
-            fo = open("rdfile.txt", "r")
+            fo = open("/mnt/tmp/rdfile.txt", "r")
             msg = fo.read()
             print "msg:", msg
             # Close opend file

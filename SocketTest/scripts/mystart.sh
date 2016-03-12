@@ -1,4 +1,5 @@
 #!/bin/bash
+mount /mnt/tmp
 touch ~/test.txt
 export VIRTUALENVWAPPER_PYTHON=/usr/bin/python2.7
 export WORKON_HOME=$HOME/.virtualenvs

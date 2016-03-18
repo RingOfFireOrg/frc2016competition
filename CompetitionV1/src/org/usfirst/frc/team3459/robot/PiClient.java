@@ -13,8 +13,8 @@ public class PiClient {
 	
 	final int PORT = 5801;
 	
-	final byte[] LOCAL_IP = new byte[] { 10, 99, 99, 20 }; 
-    final byte[] REMOTE_IP = new byte[] { 10, 99, 99, 22 };
+	final byte[] LOCAL_IP = new byte[] { 10, 34, 59, 20 }; 
+    final byte[] REMOTE_IP = new byte[] { 10, 34, 59, 22 };
     final long INTERVAL = 1000;
     int port = 5801;
     long lastQuery = 0;
@@ -55,7 +55,7 @@ public class PiClient {
 			if(answer.contains("H") ){
 				return true;
 			} else {
-				return false;
+				return true;
 			}
 
 		} catch (UnknownHostException e) {

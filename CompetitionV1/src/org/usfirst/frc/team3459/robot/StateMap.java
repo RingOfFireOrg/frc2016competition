@@ -1,8 +1,8 @@
 package org.usfirst.frc.team3459.robot;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map.Entry;
 
 import edu.wpi.first.wpilibj.Joystick;
 /**
@@ -11,18 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
  * @param <S> The State Type
  */
 public class StateMap<S> {
-	/**
-	 * The button number to State Mapping
-	 */
-	private Map<Integer,S> buttonMap = new HashMap<>();
-	/**
-	 * The lock that dictates whether the mapping can be effected
-	 */
-	private boolean lock = false;
-	/**
-	 * The keySet generated from the mapping when the StateMap is locked
-	 */
-	private Set<Integer> keySet;
+	private List<Entry<Integer,S>> entryList = new ArrayList<>();
 	/**
 	 * The StateMachine<T> being controlled by the StateMaps
 	 */
@@ -31,7 +20,6 @@ public class StateMap<S> {
 	 * The Joystick on which the buttons are located
 	 */
 	private Joystick joystick;
-	
 	/**
 	 * Constructs a StateMap with the corresponding StateMachine and Joystick
 	 * @param stateMachine
@@ -43,47 +31,59 @@ public class StateMap<S> {
 	}
 	
 	/**
-	 * generates a keySet from the mapping, sets the lock to true
-	 */
-	public void lock() {
-		keySet = buttonMap.keySet();
-		lock = true;
-	}
-	
-	/**
 	 * Adds a Button -> State mapping to the StateMap
 	 * @param key The button number
 	 * @param value The state
 	 */
-	protected void put(Integer key, S value) {
-		if(lock)
-			return;
-		
-		buttonMap.put(key, value);
+	protected synchronized void put(Integer key, S value) {
+		entryList.add(new Pair<Integer,S>(key, value));
 	}
 	
 	/**
 	 * Causes the StateMap to update the StateMachine based on the current value
 	 * of the Joystick
 	 */
-	public void update() {
-		if(!lock)
-			return;
-		
+	public synchronized void update() {
 		int buttonsPressed = 0;							//The number of buttons currently pressed
-		int activeButton = 0;							//The ID of an actively pressed button
+		Entry<Integer,S> activeButton = null;							//The ID of an actively pressed button
 		
-		for(Integer buttonNum : keySet) {				//For each button that is mapped
-			if(joystick.getRawButton(buttonNum)) {		//If it is pressed
-				activeButton = buttonNum;				//Give its value to activeButton
+		for(Entry<Integer,S> entry : entryList) {				//For each button that is mapped
+			if(joystick.getRawButton(entry.getKey())) {		//If it is pressed
+				activeButton = entry;				//Give its value to activeButton
 				buttonsPressed++;						//Add 1 to buttonsPressed
 			}
 		}
 		
-		if(buttonsPressed > 1) 							//If more than one button is pressed
+		if(buttonsPressed != 1) 							//If more than one button is pressed
 			return;										//Stop the update
 		
-		stateMachine.setState(buttonMap.get(activeButton));	//Sets the StateMachine to have the value
+		stateMachine.setState(activeButton.getValue());	//Sets the StateMachine to have the value
 															//corresponding to the only pressed button
+	}
+	
+	class Pair<K,V> implements Entry<K,V> {
+		K key;
+		V value;
+		
+		public Pair(K key,V value) {
+			this.key = key;
+			this.value = value;
+		}
+
+		@Override
+		public K getKey() {
+			return key;
+		}
+
+		@Override
+		public V getValue() {
+			return value;
+		}
+
+		@Override
+		public V setValue(V value) {
+			this.value = value;
+			return value;
+		}
 	}
 }

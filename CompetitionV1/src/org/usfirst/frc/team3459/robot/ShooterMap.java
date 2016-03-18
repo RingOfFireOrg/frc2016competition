@@ -11,8 +11,8 @@ public class ShooterMap extends StateMap<Shooter.State>{
 	public static final int upB = 11;
 	public static final int downB = 12;
 
-	public static final int motorInB = 13;
-	public static final int motorOutB = 14;
+	public static final int motorInB = 9;
+	public static final int motorOutB = 10;
 	
 	/**
 	 * Place put(int,Shooter.State) commands in the ShooterMap constructor to map the 
@@ -33,7 +33,5 @@ public class ShooterMap extends StateMap<Shooter.State>{
 		put(downB, Shooter.State.DOWN);
 		put(motorInB, Shooter.State.MOTOR_IN);
 		put(motorOutB, Shooter.State.MOTOR_OUT);
-		
-		lock();
 	}
 }

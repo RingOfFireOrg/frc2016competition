@@ -8815,3 +8815,1195 @@ java.lang.ArrayIndexOutOfBoundsException: -1
 
 !ENTRY WPILib_Java_Robot_Development 1 0 2016-03-09 02:56:28.051
 !MESSAGE Targets: deploy, Mode: run
+!SESSION 2016-03-10 00:58:45.086 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-03-10 00:59:22.686
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-10 01:01:23.659
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Wake Robotics Member'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:01:26.139
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:01:26.139
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:01:26.619
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:01:26.689
+!MESSAGE Installedcpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:01:26.699
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:01:26.699
+!MESSAGE Installedjava
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:34:04.356
+!MESSAGE Preferences initialized.
+
+!ENTRY org.eclipse.jface 4 0 2016-03-10 01:34:07.586
+!MESSAGE java.lang.ArrayIndexOutOfBoundsException: -1
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at java.util.ArrayList.elementData(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at edu.wpi.first.wpilib.plugins.core.preferences.ComboFieldEditor.getChoice(ComboFieldEditor.java:30)
+	at edu.wpi.first.wpilib.plugins.core.preferences.ComboFieldEditor.doStore(ComboFieldEditor.java:63)
+	at org.eclipse.jface.preference.FieldEditor.store(FieldEditor.java:683)
+	at org.eclipse.jface.preference.FieldEditorPreferencePage.performOk(FieldEditorPreferencePage.java:344)
+	at edu.wpi.first.wpilib.plugins.core.preferences.WPILibPreferencePage.performOk(WPILibPreferencePage.java:96)
+	at org.eclipse.jface.preference.PreferenceDialog$12.run(PreferenceDialog.java:925)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at org.eclipse.jface.preference.PreferenceDialog.okPressed(PreferenceDialog.java:909)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.okPressed(FilteredPreferenceDialog.java:409)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.okPressed(WorkbenchPreferenceDialog.java:168)
+	at org.eclipse.jface.preference.PreferenceDialog.buttonPressed(PreferenceDialog.java:233)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:211)
+	at org.eclipse.ui.internal.OpenPreferencesAction.run(OpenPreferencesAction.java:63)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:38:17.030
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:38:17.030
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-03-10 01:38:24.514
+!MESSAGE Cannot download published Gradle versions.
+!STACK 0
+java.net.UnknownHostException: services.gradle.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.connect(Unknown Source)
+	at sun.security.ssl.BaseSSLSocketImpl.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.<init>(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.New(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at com.gradleware.tooling.toolingutils.distribution.PublishedGradleVersions.downloadVersionInformation(PublishedGradleVersions.java:167)
+	at com.gradleware.tooling.toolingutils.distribution.PublishedGradleVersions.create(PublishedGradleVersions.java:134)
+	at org.eclipse.buildship.core.util.gradle.PublishedGradleVersionsWrapper.create(PublishedGradleVersionsWrapper.java:40)
+	at org.eclipse.buildship.core.util.gradle.PublishedGradleVersionsWrapper.<init>(PublishedGradleVersionsWrapper.java:35)
+	at org.eclipse.buildship.core.CorePlugin.createPublishedGradleVersions(CorePlugin.java:166)
+	at org.eclipse.buildship.core.CorePlugin.registerServices(CorePlugin.java:139)
+	at org.eclipse.buildship.core.CorePlugin.start(CorePlugin.java:102)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:771)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:764)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:721)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:941)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:318)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:571)
+	at org.eclipse.osgi.container.Module.start(Module.java:439)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:327)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:36)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:398)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:352)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:344)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.getDeclaredConstructors0(Native Method)
+	at java.lang.Class.privateGetDeclaredConstructors(Unknown Source)
+	at java.lang.Class.getConstructor0(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.loadBundleActivator(BundleContextImpl.java:755)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:706)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:941)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:318)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:571)
+	at org.eclipse.osgi.container.Module.start(Module.java:439)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:327)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:402)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:352)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:344)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:573)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.console.ConsolePageParticipantExtension.createDelegate(ConsolePageParticipantExtension.java:72)
+	at org.eclipse.ui.internal.console.ConsoleManager.getPageParticipants(ConsoleManager.java:455)
+	at org.eclipse.ui.internal.console.ConsoleView.doCreatePage(ConsoleView.java:317)
+	at org.eclipse.ui.part.PageBookView.createPage(PageBookView.java:422)
+	at org.eclipse.ui.part.PageBookView.partActivated(PageBookView.java:768)
+	at org.eclipse.ui.internal.console.ConsoleView$4.run(ConsoleView.java:398)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4155)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3772)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:40:51.193
+!MESSAGE Preferences initialized.
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:49:31.291
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:49:31.291
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:53:01.789
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:53:01.789
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:53:40.603
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:53:40.603
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:53:57.498
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:53:57.498
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:54:36.091
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:54:36.091
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:56:35.707
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 01:56:35.707
+!MESSAGE Targets: deploy, Mode: run
+!SESSION 2016-03-10 01:58:39.927 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-10 01:59:03.082
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Wake Robotics Member'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:59:04.452
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:59:04.462
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:59:04.472
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:59:04.642
+!MESSAGE Installedcpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:59:04.642
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 01:59:04.642
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 02:48:07.187
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 02:48:07.197
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-03-10 02:48:18.230
+!MESSAGE Cannot download published Gradle versions.
+!STACK 0
+java.net.UnknownHostException: services.gradle.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.connect(Unknown Source)
+	at sun.security.ssl.BaseSSLSocketImpl.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.<init>(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.New(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at com.gradleware.tooling.toolingutils.distribution.PublishedGradleVersions.downloadVersionInformation(PublishedGradleVersions.java:167)
+	at com.gradleware.tooling.toolingutils.distribution.PublishedGradleVersions.create(PublishedGradleVersions.java:134)
+	at org.eclipse.buildship.core.util.gradle.PublishedGradleVersionsWrapper.create(PublishedGradleVersionsWrapper.java:40)
+	at org.eclipse.buildship.core.util.gradle.PublishedGradleVersionsWrapper.<init>(PublishedGradleVersionsWrapper.java:35)
+	at org.eclipse.buildship.core.CorePlugin.createPublishedGradleVersions(CorePlugin.java:166)
+	at org.eclipse.buildship.core.CorePlugin.registerServices(CorePlugin.java:139)
+	at org.eclipse.buildship.core.CorePlugin.start(CorePlugin.java:102)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:771)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:764)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:721)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:941)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:318)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:571)
+	at org.eclipse.osgi.container.Module.start(Module.java:439)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:327)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:36)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:398)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:352)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:344)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.getDeclaredConstructors0(Native Method)
+	at java.lang.Class.privateGetDeclaredConstructors(Unknown Source)
+	at java.lang.Class.getConstructor0(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.loadBundleActivator(BundleContextImpl.java:755)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:706)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:941)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:318)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:571)
+	at org.eclipse.osgi.container.Module.start(Module.java:439)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:327)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:402)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:352)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:344)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:573)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.console.ConsolePageParticipantExtension.createDelegate(ConsolePageParticipantExtension.java:72)
+	at org.eclipse.ui.internal.console.ConsoleManager.getPageParticipants(ConsoleManager.java:455)
+	at org.eclipse.ui.internal.console.ConsoleView.doCreatePage(ConsoleView.java:317)
+	at org.eclipse.ui.part.PageBookView.createPage(PageBookView.java:422)
+	at org.eclipse.ui.part.PageBookView.partActivated(PageBookView.java:768)
+	at org.eclipse.ui.internal.console.ConsoleView$4.run(ConsoleView.java:398)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4155)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3772)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+!SESSION 2016-03-10 04:27:02.576 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-10 04:29:32.808
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Wake Robotics Member'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 04:29:34.028
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 04:29:34.028
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 04:29:34.068
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 04:29:34.158
+!MESSAGE Installedcpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 04:29:34.508
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 04:29:34.508
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:34:36.515
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:34:36.515
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2016-03-10 04:34:44.779
+!MESSAGE Cannot download published Gradle versions.
+!STACK 0
+java.net.UnknownHostException: services.gradle.org
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.connect(Unknown Source)
+	at sun.security.ssl.BaseSSLSocketImpl.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.<init>(Unknown Source)
+	at sun.net.www.protocol.https.HttpsClient.New(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(Unknown Source)
+	at com.gradleware.tooling.toolingutils.distribution.PublishedGradleVersions.downloadVersionInformation(PublishedGradleVersions.java:167)
+	at com.gradleware.tooling.toolingutils.distribution.PublishedGradleVersions.create(PublishedGradleVersions.java:134)
+	at org.eclipse.buildship.core.util.gradle.PublishedGradleVersionsWrapper.create(PublishedGradleVersionsWrapper.java:40)
+	at org.eclipse.buildship.core.util.gradle.PublishedGradleVersionsWrapper.<init>(PublishedGradleVersionsWrapper.java:35)
+	at org.eclipse.buildship.core.CorePlugin.createPublishedGradleVersions(CorePlugin.java:166)
+	at org.eclipse.buildship.core.CorePlugin.registerServices(CorePlugin.java:139)
+	at org.eclipse.buildship.core.CorePlugin.start(CorePlugin.java:102)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:771)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:764)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:721)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:941)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:318)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:571)
+	at org.eclipse.osgi.container.Module.start(Module.java:439)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:327)
+	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:36)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:398)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:352)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:344)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.Class.getDeclaredConstructors0(Native Method)
+	at java.lang.Class.privateGetDeclaredConstructors(Unknown Source)
+	at java.lang.Class.getConstructor0(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.loadBundleActivator(BundleContextImpl.java:755)
+	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:706)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:941)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:318)
+	at org.eclipse.osgi.container.Module.doStart(Module.java:571)
+	at org.eclipse.osgi.container.Module.start(Module.java:439)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:327)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:402)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:352)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:344)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:573)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.console.ConsolePageParticipantExtension.createDelegate(ConsolePageParticipantExtension.java:72)
+	at org.eclipse.ui.internal.console.ConsoleManager.getPageParticipants(ConsoleManager.java:455)
+	at org.eclipse.ui.internal.console.ConsoleView.doCreatePage(ConsoleView.java:317)
+	at org.eclipse.ui.part.PageBookView.createPage(PageBookView.java:422)
+	at org.eclipse.ui.part.PageBookView.partActivated(PageBookView.java:768)
+	at org.eclipse.ui.internal.console.ConsoleView$4.run(ConsoleView.java:398)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:135)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4155)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3772)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:36:15.071
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:36:15.071
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:37:57.216
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:37:57.216
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:43:49.042
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:43:49.042
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:45:44.527
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:45:44.527
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:56:27.783
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 04:56:27.783
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:01:01.343
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:01:01.343
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:06:41.554
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:06:41.554
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:12:52.693
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:12:52.693
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:15:51.099
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:15:51.099
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:16:06.298
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:16:06.298
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:17:32.755
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:17:32.755
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:18:39.283
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:18:39.283
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:20:13.357
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:20:13.357
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:21:18.948
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:21:18.948
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:22:49.095
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:22:49.095
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:23:25.539
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:23:25.539
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:24:02.530
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:24:02.530
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:25:07.428
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:25:07.428
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:25:49.044
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:25:49.044
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:27:01.089
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:27:01.089
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:28:36.466
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:28:36.466
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:36:58.509
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:36:58.509
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:38:58.932
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:38:58.932
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:42:40.297
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:42:40.297
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:44:05.103
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:44:05.103
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:45:15.381
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:45:15.381
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:46:43.160
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:46:43.160
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:47:04.910
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:47:04.910
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:50:31.315
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 05:50:31.315
+!MESSAGE Targets: deploy, Mode: run
+!SESSION 2016-03-10 23:34:23.941 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-10 23:37:50.973
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Wake Robotics Member'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 23:37:53.613
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 23:37:53.613
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 23:37:53.633
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 23:37:53.703
+!MESSAGE Installedcpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 23:37:53.793
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 23:37:53.793
+!MESSAGE Installedjava
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-10 23:40:41.270
+!MESSAGE Preferences initialized.
+
+!ENTRY org.eclipse.jface 4 0 2016-03-10 23:40:46.660
+!MESSAGE java.lang.ArrayIndexOutOfBoundsException: -1
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at java.util.ArrayList.elementData(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at edu.wpi.first.wpilib.plugins.core.preferences.ComboFieldEditor.getChoice(ComboFieldEditor.java:30)
+	at edu.wpi.first.wpilib.plugins.core.preferences.ComboFieldEditor.doStore(ComboFieldEditor.java:63)
+	at org.eclipse.jface.preference.FieldEditor.store(FieldEditor.java:683)
+	at org.eclipse.jface.preference.FieldEditorPreferencePage.performOk(FieldEditorPreferencePage.java:344)
+	at edu.wpi.first.wpilib.plugins.core.preferences.WPILibPreferencePage.performOk(WPILibPreferencePage.java:96)
+	at org.eclipse.jface.preference.PreferenceDialog$12.run(PreferenceDialog.java:925)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at org.eclipse.jface.preference.PreferenceDialog.okPressed(PreferenceDialog.java:909)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.okPressed(FilteredPreferenceDialog.java:409)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.okPressed(WorkbenchPreferenceDialog.java:168)
+	at org.eclipse.jface.preference.PreferenceDialog.buttonPressed(PreferenceDialog.java:233)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:211)
+	at org.eclipse.ui.internal.OpenPreferencesAction.run(OpenPreferencesAction.java:63)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 23:41:08.230
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 23:41:08.240
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 23:41:40.733
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-10 23:41:40.733
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-11 00:30:28.115
+!MESSAGE Preferences initialized.
+
+!ENTRY org.eclipse.jface 4 0 2016-03-11 00:30:30.813
+!MESSAGE java.lang.ArrayIndexOutOfBoundsException
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException
+!SESSION 2016-03-11 11:28:00.802 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-03-11 11:28:07.173
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-11 11:28:27.222
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Wake Robotics Member'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-11 11:28:27.839
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-11 11:28:27.850
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-11 11:28:27.855
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-11 11:28:27.902
+!MESSAGE Installedcpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-11 11:28:27.904
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-11 11:28:27.905
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 12:03:31.526
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 12:03:31.527
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 12:07:31.658
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 12:07:31.659
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-11 12:07:53.686
+!MESSAGE Preferences initialized.
+
+!ENTRY org.eclipse.jface 4 0 2016-03-11 12:07:54.887
+!MESSAGE java.lang.ArrayIndexOutOfBoundsException: -1
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at java.util.ArrayList.elementData(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at edu.wpi.first.wpilib.plugins.core.preferences.ComboFieldEditor.getChoice(ComboFieldEditor.java:30)
+	at edu.wpi.first.wpilib.plugins.core.preferences.ComboFieldEditor.doStore(ComboFieldEditor.java:63)
+	at org.eclipse.jface.preference.FieldEditor.store(FieldEditor.java:683)
+	at org.eclipse.jface.preference.FieldEditorPreferencePage.performOk(FieldEditorPreferencePage.java:344)
+	at edu.wpi.first.wpilib.plugins.core.preferences.WPILibPreferencePage.performOk(WPILibPreferencePage.java:96)
+	at org.eclipse.jface.preference.PreferenceDialog$12.run(PreferenceDialog.java:925)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at org.eclipse.jface.preference.PreferenceDialog.okPressed(PreferenceDialog.java:909)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.okPressed(FilteredPreferenceDialog.java:409)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.okPressed(WorkbenchPreferenceDialog.java:168)
+	at org.eclipse.jface.preference.PreferenceDialog.buttonPressed(PreferenceDialog.java:233)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:211)
+	at org.eclipse.ui.internal.OpenPreferencesAction.run(OpenPreferencesAction.java:63)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 12:07:59.626
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 12:07:59.626
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 12:08:40.202
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 12:08:40.203
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:31:18.100
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:31:18.101
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:32:04.321
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:32:04.322
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:34:17.041
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:34:17.042
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:35:25.364
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:35:25.366
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:36:32.737
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:36:32.754
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:37:56.329
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:37:56.329
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:38:38.606
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:38:38.606
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY org.eclipse.recommenders.rcp 2 15 2016-03-11 13:38:52.807
+!MESSAGE Failed to parse news feed
+!STACK 0
+java.net.UnknownHostException: www.codetrails.com
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:102)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.http.client.fluent.Executor.execute(Executor.java:206)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.getRSSFeed(CheckForProjectNewsJob.java:138)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.doRun(CheckForProjectNewsJob.java:89)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.run(CheckForProjectNewsJob.java:62)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:39:55.061
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:39:55.062
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:41:23.964
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:41:23.965
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:42:19.766
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:42:19.766
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:47:41.905
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 13:47:41.906
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 14:52:59.500
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 14:52:59.501
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 14:53:28.101
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-11 14:53:28.102
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 08:53:58.888
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 08:53:58.889
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 08:57:15.834
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 08:57:15.836
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 08:58:30.958
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 08:58:30.959
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 09:15:40.111
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 09:15:40.112
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 09:16:03.914
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 09:16:03.915
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 09:34:05.910
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 09:34:05.911
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 09:34:49.970
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 09:34:49.971
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 12:46:51.844
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 12:46:51.844
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 12:47:30.264
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-12 12:47:30.264
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:11:54.174
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:11:54.175
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:20:10.627
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:20:10.627
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:21:37.889
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:21:37.890
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-18 15:21:54.025
+!MESSAGE Preferences initialized.
+
+!ENTRY org.eclipse.jface 4 0 2016-03-18 15:21:58.716
+!MESSAGE java.lang.ArrayIndexOutOfBoundsException
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-18 15:22:09.079
+!MESSAGE Preferences initialized.
+
+!ENTRY org.eclipse.jface 4 0 2016-03-18 15:22:11.532
+!MESSAGE java.lang.ArrayIndexOutOfBoundsException
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:22:20.839
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:22:20.840
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:24:18.930
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:24:18.932
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:27:23.202
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:27:23.203
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:29:28.124
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:29:28.124
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:30:10.705
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:30:10.706
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:33:35.970
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:33:35.970
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:34:46.334
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:34:46.335
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:35:21.306
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-18 15:35:21.307
+!MESSAGE Targets: deploy, Mode: run

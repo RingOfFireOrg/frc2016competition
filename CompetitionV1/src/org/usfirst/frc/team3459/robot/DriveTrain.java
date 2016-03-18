@@ -1,5 +1,6 @@
 package org.usfirst.frc.team3459.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.RobotDrive;
 
@@ -15,8 +16,8 @@ public class DriveTrain {
 	double leftSpeed, rightSpeed;
 	public DriveTrain(RobotDrive drive, Encoder e1, Encoder e2) {
 		this.drive = drive;
-		this.lEncoder = e1;
-		this.rEncoder = e2;
+		this.lEncoder = e2;
+		this.rEncoder = e1;
 	}
 	
 	public void tankDrive(double leftSpeed, double rightSpeed) {
@@ -53,5 +54,10 @@ public class DriveTrain {
 		}
 		
 		drive.tankDrive(leftSpeed, rightSpeed);
+	}
+	
+	public void printEncoders() {
+//		String output = "Left: " + lEncoder.get() + " Right: " + rEncoder.get();
+//		DriverStation.reportError(output,false);
 	}
 }

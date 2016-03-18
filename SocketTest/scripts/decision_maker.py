@@ -6,7 +6,7 @@ import sys
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Bind the socket to the port
-server_address = ('10.99.99.22', 5801)
+server_address = ('10.34.59.22', 5801)
 print >>sys.stderr, 'starting up on %s port %s' % server_address
 sock.bind(server_address)
 
@@ -26,7 +26,7 @@ while True:
             data = connection.recv(16)
             print >>sys.stderr, 'received "%s"' % data
             
-            fo = open("rdfile.txt", "r")
+            fo = open("/mnt/tmp/rdfile.txt", "r")
             msg = fo.read()
             print "msg:", msg
             # Close opend file

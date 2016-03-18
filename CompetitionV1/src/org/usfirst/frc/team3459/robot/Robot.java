@@ -14,16 +14,7 @@ public class Robot extends SampleRobot {
 
 	Joystick controlStick;
 	JoystickButton fireB;
-	JoystickButton shootUpB;
-	JoystickButton shootDownB;
-	JoystickButton intakeB;
-	JoystickButton disableB;
 
-	JoystickButton upB;
-	JoystickButton downB;
-
-	JoystickButton motorInB;
-	JoystickButton motorOutB;
 	
 	JoystickButton overRide;
 	
@@ -36,7 +27,7 @@ public class Robot extends SampleRobot {
 	public Robot() {
 		driveTrain = new DriveTrain(
 				new RobotDrive(0, 1), 
-				new Encoder(0, 1),
+		new Encoder(0, 1),
 				new Encoder(2, 3)
 			);
 		leftStick = new Joystick(0);
@@ -44,16 +35,6 @@ public class Robot extends SampleRobot {
 
 		controlStick = new Joystick(2);
 		fireB = new JoystickButton(controlStick, 1);
-//		shootUpB = new JoystickButton(controlStick, 5);
-//		shootDownB = new JoystickButton(controlStick, 3);
-//		intakeB = new JoystickButton(controlStick, 4);
-//		disableB = new JoystickButton(controlStick, 2);
-//
-//		upB = new JoystickButton(controlStick, 11);
-//		downB = new JoystickButton(controlStick, 12);
-//		
-//		motorInB = new JoystickButton(controlStick, 9);
-//		motorOutB = new JoystickButton(controlStick, 10);
 		
 		overRide = new JoystickButton(controlStick, 7);
 
@@ -88,100 +69,11 @@ public class Robot extends SampleRobot {
 			driveTrain.update();
 			driveTrain.printEncoders();
 			
-//			updateShooter();
-//			updateShooter2();
-			
 			stateMap.update();
 			shooter.update();
 			
 			Timer.delay(0.005);
 		}
 		shooter.setState(Shooter.State.DISABLE);
-	}
-
-	public void updateShooter() {
-		shooter.update();
-
-		if (fireB.get()) {
-			shooter.fire();
-		}
-
-		int buttonsPressed = (shootUpB.get() ? 1 : 0)
-				+ (shootDownB.get() ? 1 : 0) + (intakeB.get() ? 1 : 0)
-				+ (disableB.get() ? 1 : 0) + (upB.get() ? 1 : 0)
-				+ (downB.get() ? 1 : 0);
-
-		if (buttonsPressed > 1) {
-			return;
-		}
-
-		if (shootUpB.get()) {
-			shooter.setState(Shooter.State.SHOOTUP);
-		}
-		if (shootDownB.get()) {
-			shooter.setState(Shooter.State.SHOOTDOWN);
-		}
-		if (intakeB.get()) {
-			shooter.setState(Shooter.State.INTAKE);
-		}
-		if (disableB.get()) {
-			shooter.setState(Shooter.State.DISABLE);
-		}
-		if (upB.get()) {
-			shooter.setState(Shooter.State.UP);
-		}
-		if (downB.get()) {
-			shooter.setState(Shooter.State.DOWN);
-		}
-	}
-
-	public void updateShooter2() {
-		shooter.update();
-		
-		if (fireB.get()) {  //user said fire
-//			if(shooter.getState() == Shooter.State.SHOOTUP) { //machine ready to fire
-//				if(overRide.get()) {
-//					shooter.fire();
-//		 	    } else if (myPi.retrieveTargetingState()) {
-//				    shooter.fire();
-//			    }
-//			} else {
-				shooter.fire();
-//			}
-		}
-
-		int buttonsPressed = (shootUpB.get() ? 1 : 0) + (shootDownB.get() ? 1 : 0) 
-				+ (intakeB.get() ? 1 : 0) + (disableB.get() ? 1 : 0) 
-				+ (upB.get() ? 1 : 0) + (downB.get() ? 1 : 0) 
-				+ (motorInB.get() ? 1 : 0) + (motorOutB.get() ? 1 : 0);
-
-		if (buttonsPressed > 1) {
-			return;
-		}
-
-		if (shootUpB.get()) {
-			shooter.setState(Shooter.State.SHOOTUP);
-		}
-		if (shootDownB.get()) {
-			shooter.setState(Shooter.State.SHOOTDOWN);
-		}
-		if (intakeB.get()) {
-			shooter.setState(Shooter.State.INTAKE);
-		}
-		if (disableB.get()) {
-			shooter.setState(Shooter.State.DISABLE);
-		}
-		if (upB.get()) {
-			shooter.setState(Shooter.State.UP);
-		}
-		if (downB.get()) {
-			shooter.setState(Shooter.State.DOWN);
-		}
-		if (motorInB.get()) {
-			shooter.setState(Shooter.State.MOTOR_IN);
-		}
-		if (motorOutB.get()) {
-			shooter.setState(Shooter.State.MOTOR_OUT);
-		}
 	}
 }

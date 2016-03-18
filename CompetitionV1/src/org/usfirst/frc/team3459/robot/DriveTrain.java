@@ -56,8 +56,37 @@ public class DriveTrain {
 		drive.tankDrive(leftSpeed, rightSpeed);
 	}
 	
+	long lastCall = 0;
+	long now = 0;
+	long elapsed = 0;
+	double lastLPos = 0;
+	double lastRPos = 0;
+	double lPos;
+	double rPos;
+	double lSpeed;
+	double rSpeed;
+	int count = 0;
+	
 	public void printEncoders() {
-//		String output = "Left: " + lEncoder.get() + " Right: " + rEncoder.get();
-//		DriverStation.reportError(output,false);
+		count++;
+		if(count%10 != 0)
+			return;
+		
+		now = System.currentTimeMillis();
+		elapsed = now - lastCall;
+		
+		lPos = lEncoder.get();
+		rPos = rEncoder.get();
+		lSpeed = (lPos-lastLPos)/elapsed;
+		rSpeed = (rPos-lastRPos)/elapsed;
+//		
+//		String outputPosition = "Pos|Left: " + lPos + " Right: " + rPos;
+//		String outputRate = "Speed|Left: " + lSpeed + " Right: " + rSpeed;
+//		
+//		DriverStation.reportError(outputRate,false);//outputPosition + " //// " + 
+		DriverStation.reportError(Double.toString(lSpeed/rSpeed), false);
+		lastLPos = lPos;
+		lastRPos = rPos;
+		lastCall = now;
 	}
 }

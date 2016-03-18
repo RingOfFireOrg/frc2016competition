@@ -44,21 +44,21 @@ public class StateMap<S> {
 	 * of the Joystick
 	 */
 	public synchronized void update() {
-		int buttonsPressed = 0;							//The number of buttons currently pressed
-		Entry<Integer,S> activeButton = null;							//The ID of an actively pressed button
+		Entry<Integer,S> activeButton = null;
 		
-		for(Entry<Integer,S> entry : entryList) {				//For each button that is mapped
-			if(joystick.getRawButton(entry.getKey())) {		//If it is pressed
-				activeButton = entry;				//Give its value to activeButton
-				buttonsPressed++;						//Add 1 to buttonsPressed
+		for(Entry<Integer,S> entry : entryList) {
+			if(joystick.getRawButton(entry.getKey())) {
+				if(activeButton != null)
+					return;
+				
+				activeButton = entry;
 			}
 		}
 		
-		if(buttonsPressed != 1) 							//If more than one button is pressed
-			return;										//Stop the update
+		if(activeButton == null)
+			return;
 		
 		stateMachine.setState(activeButton.getValue());	//Sets the StateMachine to have the value
-															//corresponding to the only pressed button
 	}
 	
 	class Pair<K,V> implements Entry<K,V> {

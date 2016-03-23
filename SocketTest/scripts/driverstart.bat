@@ -1,1 +1,1 @@
-plink pi@10.34.59.22 -l pi -pw robotswin -m ~/Github/frc2016competition/SocketTest/scripts/mystart.sh
+C:\Program Files (x86)\PuTTY\plink pi@10.34.59.22 -l pi -pw robotswin -m ~/Github/frc2016competition/SocketTest/scripts/mystart.sh

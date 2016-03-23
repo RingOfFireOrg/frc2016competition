@@ -1,1 +1,1 @@
-C:\Program Files (x86)\PuTTY\plink pi@10.34.59.22 -l pi -pw robotswin -m ~/Github/frc2016competition/SocketTest/scripts/mystart.sh
+"C:\Program Files (x86)\PuTTY\plink.exe" pi@10.34.59.22 -pw robotswin -m "C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\SocketTest\scripts\mystart.sh"

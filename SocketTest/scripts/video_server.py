@@ -17,7 +17,7 @@ def index():
 
 def getframe():
      # get a frame that is whatever is in "currentframe.jpeg" at the moment
-     file = open('/mnt/tmp/currentframe.jpeg', 'rb')
+     file = open('/home/pi/ramdisk/currentframe.jpeg', 'rb')
      frame = file.read()
      file.close()
      return frame

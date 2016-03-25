@@ -1,5 +1,10 @@
-package org.usfirst.frc.team3459.robot;
+package org.usfirst.frc.team3459.ptlibj;
 
+/**
+ * @author Kyle Brown
+ *
+ * @param <S> The State Type
+ */
 public interface StateMachine<S> {
 	/**
 	 * interface method that tells the StateMachine implementation to enter a state

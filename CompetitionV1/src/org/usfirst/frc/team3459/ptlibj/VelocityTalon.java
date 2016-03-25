@@ -1,20 +1,31 @@
-package org.usfirst.frc.team3459.robot;
+package org.usfirst.frc.team3459.ptlibj;
 
 import edu.wpi.first.wpilibj.CANTalon;
 
+/**
+ * @author Kyle Brown
+ *
+ * A wrapper for a CANTalon that self calibrates the F value based on the Talon User Guide
+ */
 public class VelocityTalon {
 	public static final double SCALE = 1023;
 	public static final double TIME_CONST = 600;
 	
 	private boolean inTest = false;
 	private double speed;
-	private double f;
+	private double f = 0;
 	
 	private CANTalon canTalon;
 	private int nativeUnitsPerRev;
 	
 	private StringBuilder toStringBuilder;
 	
+	/**
+	 * @param id the Talons ID in the CAN system, see the roborio local page to find/set the ID
+	 * @param feedBack the feedback device you are using
+	 * @param codesPerRev the number of codes the encoder counts per revolution
+	 * @return the newly constructed VelocityTalon
+	 */
 	public static VelocityTalon createTalon(int id, CANTalon.FeedbackDevice feedBack, int codesPerRev) {
 		int nativeUnitsPerRev;
 		
@@ -27,6 +38,12 @@ public class VelocityTalon {
 		}
 	}
 	
+	/**
+	 * @param id the Talons ID in the CAN system, see the roborio local page to find/set the ID
+	 * @param feedBack the feedback device you are using
+	 * @param nativeUnitsPerRev the number of Talon native units per revolution
+	 * @param codesPerRev the number of codes the encoder counts per revolution
+	 */
 	public VelocityTalon(int id, CANTalon.FeedbackDevice feedBack, int nativeUnitsPerRev, int codesPerRev) {
 		canTalon = new CANTalon(id);
 		canTalon.setFeedbackDevice(feedBack);
@@ -44,6 +61,9 @@ public class VelocityTalon {
 		toStringBuilder = new StringBuilder();
 	}
 	
+	/**
+	 * @param inTest the new test mode status of this VelocityTalon
+	 */
 	public synchronized void setInTest(boolean inTest) {
 		this.inTest = inTest;
 		if(inTest) {
@@ -54,18 +74,12 @@ public class VelocityTalon {
 	}
 	
 	public synchronized void setSpeed(double speed) {
-		if(inTest) {
-			
-			return;
-		}
-		
 		this.speed = speed;
 	}
 	
 	public synchronized void update() {
 		if(inTest) {
 			canTalon.set(Double.MAX_VALUE);
-			System.out.println(getFSuggestion());
 		} else {
 			canTalon.set(speed);
 		}
@@ -79,6 +93,10 @@ public class VelocityTalon {
 		canTalon.setP(p);
 		canTalon.setI(i);
 		canTalon.setD(d);
+	}
+	
+	public void updateF() {
+		setF(f);
 	}
 	
 	public String getFSuggestion() {

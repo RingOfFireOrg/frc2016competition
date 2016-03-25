@@ -1,7 +1,10 @@
-package org.usfirst.frc.team3459.robot;
+package org.usfirst.frc.team3459.ptlibj;
 
 import edu.wpi.first.wpilibj.Servo;
 
+/**
+ * @author Kyle Brown
+ */
 public class Trigger {	
 	private Servo a;
 	private long fireTime = 1000;
@@ -10,10 +13,29 @@ public class Trigger {
 	private boolean firing = false;
 	private long lastFire = 0;
 	
+	/**
+	 * @param n the PWM port
+	 */
 	public Trigger(int n) {
 		a = new Servo(n);
 	}
 	
+	/**
+	 * @param n the PWM port
+	 * @param fireTime the duration of a firing
+	 * @param idleAngle the angle set while the trigger is idle
+	 * @param fireAngle the angle set while the trigger is firings
+	 */
+	public Trigger(int n, long fireTime, double idleAngle, double fireAngle) {
+		a = new Servo(n);
+		this.fireTime = fireTime;
+		this.idleAngle = idleAngle;
+		this.fireAngle = fireAngle;
+	}
+	
+	/**
+	 * Tells the trigger to fire
+	 */
 	public void fire() {
 		if(!firing) {
 			lastFire = System.currentTimeMillis();

@@ -1,10 +1,8 @@
-package org.usfirst.frc.team3459.robot;
+package org.usfirst.frc.team3459.ptlibj;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map.Entry;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
 /**
  * @author Kyle Brown
@@ -12,7 +10,10 @@ import edu.wpi.first.wpilibj.Joystick;
  * @param <S> The State Type
  */
 public class StateMap<S> {
-	private List<Entry<Integer,S>> entryList = new ArrayList<>();
+	/**
+	 * The list of pairings
+	 */
+	private List<Pair<Integer,S>> pairList = new ArrayList<>();
 	/**
 	 * The StateMachine<T> being controlled by the StateMaps
 	 */
@@ -37,7 +38,7 @@ public class StateMap<S> {
 	 * @param value The state
 	 */
 	protected synchronized void put(Integer key, S value) {
-		entryList.add(new Pair<Integer,S>(key, value));
+		pairList.add(new Pair<Integer,S>(key, value));
 	}
 	
 	/**
@@ -45,26 +46,31 @@ public class StateMap<S> {
 	 * of the Joystick
 	 */
 	public synchronized void update() {
-		Entry<Integer,S> activeButton = null;
+		Pair<Integer,S> activeButton = null;
 		
-		for(Entry<Integer,S> entry : entryList) {
-			if(joystick.getRawButton(entry.getKey())) {
+		for(Pair<Integer,S> pair : pairList) {
+			if(joystick.getRawButton(pair.getKey())) {
 				if(activeButton != null)
 					return;
 				
-				activeButton = entry;
+				activeButton = pair;
 			}
 		}
 		
 		if(activeButton == null)
 			return;
 		
-		
-		DriverStation.reportError("Action Received", false);
+		System.out.println("Action Received");
 		stateMachine.setState(activeButton.getValue());	//Sets the StateMachine to have the value
 	}
 	
-	class Pair<K,V> implements Entry<K,V> {
+	/**
+	 * @author Kyle Brown
+	 *
+	 * @param <K> The Key type
+	 * @param <V> The Value type
+	 */
+	class Pair<K,V> {
 		K key;
 		V value;
 		
@@ -73,19 +79,11 @@ public class StateMap<S> {
 			this.value = value;
 		}
 
-		@Override
 		public K getKey() {
 			return key;
 		}
 
-		@Override
 		public V getValue() {
-			return value;
-		}
-
-		@Override
-		public V setValue(V value) {
-			this.value = value;
 			return value;
 		}
 	}

@@ -1,5 +1,7 @@
 package org.usfirst.frc.team3459.robot;
 
+import org.usfirst.frc.team3459.ptlibj.StateMap;
+
 import edu.wpi.first.wpilibj.Joystick;
 
 public class ShooterMap extends StateMap<Shooter.State>{ 

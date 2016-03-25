@@ -42,20 +42,26 @@ bottomymax = 223
 factormin = 1000
 factormax = 3000
 
+
 #making thresholds
 
 thresh = 0
 
+
+
 def threshhigh( val ):
     return val - thresh
+
+
 
 def threshlow( val ):
     return val + thresh
 
+
+
 def threshcheck(left, right, top, bottom):
 
     factor = (right[0] - left[0]) * (top[0] - bottom[0])
-    print factor
     if (left[0] >= threshlow(leftxmin) and
        left[0] <= threshhigh(leftxmax) and
        right[0] >= threshlow(rightxmin) and
@@ -90,13 +96,9 @@ while True:
     #grabs current frame
     (grabbed, frame) = camera.read()
 
-    print camera
-    print frame 
-    quit()
 
     #resizes video
     frame = imutils.resize(frame, width = 300)
-    
 
     # find the red color game in the image
     upper = [200,250,0]
@@ -105,10 +107,8 @@ while True:
     upper = np.array(upper,dtype = "uint8")
     lower = np.array(lower,dtype = "uint8")
     mask = cv2.inRange(frame, lower, upper)
- 
     #find contours in the masked frame and keep the largest one
-    (_, cnts, _) = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL,
-        cv2.CHAIN_APPROX_SIMPLE)
+    (_, cnts, _) = cv2.findContours(mask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     leftmost = (0, 0)
     rightmost = (0, 0)
@@ -122,10 +122,6 @@ while True:
         rightmost = tuple(c[c[:,:,0].argmax()][0])
         topmost = tuple(c[c[:,:,1].argmin()][0])
         bottommost = tuple(c[c[:,:,1].argmax()][0])
-        print leftmost
-        print rightmost
-        print topmost
-        print bottommost
         # approximate the contour
         peri = cv2.arcLength(c, True)
         approx = cv2.approxPolyDP(c, 0.05 * peri, True)
@@ -154,8 +150,8 @@ while True:
         
     os.rename('/home/pi/ramdisk/wrfile.txt','/home/pi/ramdisk/rdfile.txt')
     
+
     # see the result locally
-#    cv2.imshow("Frame", frame)
+    #   cv2.imshow("Frame", frame)
     cv2.waitKey(1)
-   
     #  start over in the loop

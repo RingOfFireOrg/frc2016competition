@@ -3,9 +3,15 @@ package org.usfirst.frc.team3459.robot;
 import edu.wpi.first.wpilibj.CANTalon;
 
 public class Shooter implements StateMachine<Shooter.State>{
-	public static final double INSPEED = -0.6;
-	public static final double OUTSPEED = 1;
+	public static final double INSPEED = 0.6;
+	public static double OUTSPEED = 1500;//-1;
 	public static final double STOP = 0;
+	
+	public static final double P = 0.8;
+	public static final double I = 0.00;
+	public static final double D = 0.0;
+	
+	
 	private double lastSpeed = 0;
 	
 	public static final long FIREDURATION = 1000;
@@ -22,7 +28,7 @@ public class Shooter implements StateMachine<Shooter.State>{
 	private long startFireDown = System.currentTimeMillis();
 	private long startDown = System.currentTimeMillis();
 	
-	private long startShootUp = 0;
+//	private long startShootUp = 0;
 	private long startTimeShootUp = 2000;
 	//***************************************************************************************
 	
@@ -35,6 +41,42 @@ public class Shooter implements StateMachine<Shooter.State>{
 		motor2 = new CANTalon(m2);
 		trigger = new Trigger(s1);
 		tilter = new Tilter(t1,t2,false);		//invert tilter direction (change "false" to "true")
+		motor1.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+		motor2.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+		
+		motor1.reverseSensor(false);
+		motor2.reverseSensor(false);
+		
+		motor1.configEncoderCodesPerRev(20);
+		motor2.configEncoderCodesPerRev(20);
+		
+		motor1.configPeakOutputVoltage(+12.0f, -12.0f);
+		motor2.configPeakOutputVoltage(+12.0f, -12.0f);
+		
+		motor1.configNominalOutputVoltage(+0.0f, -0.0f);
+		motor2.configNominalOutputVoltage(+0.0f, -0.0f);
+		
+		motor2.setInverted(true);
+		
+		motor1.changeControlMode(CANTalon.TalonControlMode.Speed);
+		motor2.changeControlMode(CANTalon.TalonControlMode.Speed);
+
+		motor1.setProfile(0);
+		motor1.setF(1.5);
+		motor1.setP(P);
+		motor1.setI(I);
+		motor1.setD(D);
+//		
+		motor2.setProfile(0);
+		motor2.setF(1.5);
+		motor2.setP(P);
+		motor2.setI(I);
+		motor2.setD(D);
+		
+//		motor1.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+//		motor2.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+		
+//		motor1.getSpeed();
 	}
 	
 	public void update() {
@@ -62,16 +104,16 @@ public class Shooter implements StateMachine<Shooter.State>{
 			tilter.setUp();
 			
 			if(changingState) {
-				startShootUp = System.currentTimeMillis();
+//				startShootUp = System.currentTimeMillis();
 				changingState = false;
 				return;
 			}
 			
-			if(System.currentTimeMillis()-startShootUp > startTimeShootUp) {
+//			if(System.currentTimeMillis()-startShootUp > startTimeShootUp) {
 				setWheels(OUTSPEED);
-			} else {
-				setWheels(STOP);
-			}
+//			} else {
+//				setWheels(STOP);
+//			}
 			
 			if(startFire) {
 				trigger.fire();
@@ -139,9 +181,10 @@ public class Shooter implements StateMachine<Shooter.State>{
 			return;
 		
 		motor1.set(val);
-		motor2.set(-val);
+		motor2.set(val);
 		
 		lastSpeed = val;
+//		System.out.println(val);
 	}
 	
 	/**
@@ -165,5 +208,39 @@ public class Shooter implements StateMachine<Shooter.State>{
 	
 	public State getState() {
 		return state;
+	}
+	
+	public String average(double d1, double d2) {
+		return Double.toString((Math.abs(d1)+Math.abs(d2))/2.0);
+	}
+	
+	public String toString() {
+		String output = "out: " + average(motor1.getOutputVoltage()/motor1.getBusVoltage(),
+				motor2.getOutputVoltage()/motor2.getBusVoltage());
+		
+		String speed = "spd: " + average(motor1.getSpeed(),motor2.getSpeed());
+		String error = "err: " + average(motor1.getClosedLoopError(), motor2.getClosedLoopError());
+		String target = "trg: " + Shooter.OUTSPEED;
+		
+		return output + "\t|| " + speed + "\t|| " + error + "\t|| " + target;
+	}
+	
+	double nativeUnitsPerRev = 20*4;
+	double scale = 1023;
+	double timeConst = 600;
+	
+	double f1=0;
+	double f2=0;
+	
+	int count = 0;
+	
+	public String getFSuggestionText() {
+		if(count%100 != 0)
+			return "";
+		
+		f1 = (scale*timeConst)/(Math.abs(motor1.getSpeed())*nativeUnitsPerRev);
+		f2 = (scale*timeConst)/(Math.abs(motor2.getSpeed())*nativeUnitsPerRev);
+		
+		return " F1: " + f1 + " F2: " + f2;
 	}
 }

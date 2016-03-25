@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.Joystick;
 /**
  * @author Kyle Brown
@@ -58,6 +59,8 @@ public class StateMap<S> {
 		if(activeButton == null)
 			return;
 		
+		
+		DriverStation.reportError("Action Received", false);
 		stateMachine.setState(activeButton.getValue());	//Sets the StateMachine to have the value
 	}
 	

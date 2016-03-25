@@ -100,6 +100,8 @@ while True:
     #resizes video
     frame = imutils.resize(frame, width = 300)
 
+    frame = imutils.rotate(frame, 180)
+
     # find the red color game in the image
     upper = [200,250,0]
     lower = [20,180,0]

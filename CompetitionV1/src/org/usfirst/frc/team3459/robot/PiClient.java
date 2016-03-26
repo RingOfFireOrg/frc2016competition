@@ -13,8 +13,8 @@ public class PiClient {
 	
 	final int PORT = 5801;
 	
-	final byte[] LOCAL_IP = new byte[] { 10, 34, 59, 20 }; 
-    final byte[] REMOTE_IP = new byte[] { 10, 34, 59, 22 };
+	final byte[] LOCAL_IP = new byte[] {roborio-3459-frc.local}; 
+    final byte[] REMOTE_IP = new byte[] {raspberrypi.local};
     final long INTERVAL = 1000;
     int port = 5801;
     long lastQuery = 0;
@@ -22,6 +22,23 @@ public class PiClient {
 	PiClient(){
 	
 	}
+	
+	private String readLine(InputStreamReader reader) {
+        // http://stackoverflow.com/questions/8473382/reading-content-from-file-in-j2me
+        int readChar = reader.read();
+        StringBuffer string = new StringBuffer("");
+        // Read until end of file or new line
+               
+        while (readChar != '\n') {
+            if (readChar != '\r' && readChar != -1) {
+               string.append((char) readChar);
+            }
+            // Read the next character
+            readChar = reader.read();
+        }
+        return string.toString();
+	}
+
 	
 	public boolean retrieveTargetingState(){
 		 Socket s = null;
@@ -48,9 +65,8 @@ public class PiClient {
 			output.write("isOnTarget".getBytes());
 			output.flush();
 			InputStreamReader reader = new InputStreamReader(input);
-			BufferedReader br = new BufferedReader(reader);
 			
-			String answer = br.readLine();
+			String answer = this.readLine(reader);
 			
 			if(answer.contains("H") ){
 				return true;

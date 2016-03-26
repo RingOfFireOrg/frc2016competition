@@ -1,1 +1,1 @@
-"C:\frc2016competition\SocketTest\scripts\plink.exe" pi@10.34.59.22 -pw robotswin -m "C:\frc2016competition\SocketTest\scripts\mystop.sh"
+"C:\frc2016competition\SocketTest\scripts\plink.exe" pi@raspberrypi.local -pw robotswin -m "C:\frc2016competition\SocketTest\scripts\mystop.sh"

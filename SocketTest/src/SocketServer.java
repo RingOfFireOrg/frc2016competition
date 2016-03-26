@@ -10,6 +10,12 @@ import java.net.UnknownHostException;
 
 public class SocketServer {
 
+        private String readLine(BufferedReader reader) {
+             // http://stackoverflow.com/questions/8473382/reading-content-from-file-in-j2me
+             String in = reader.readLine();	
+	     return in;
+	}
+
 	public static void main(String[] args) {
 
 		byte[] localIP = new byte[] { 127, 0, 0, 1 }; // Fix this address to
@@ -23,7 +29,8 @@ public class SocketServer {
 			InputStream input = s.getInputStream();
 			InputStreamReader reader = new InputStreamReader(input);
             BufferedReader br = new BufferedReader(reader);
-            String in = br.readLine();
+            String in = this.readLine(br);
+
             
 			OutputStream output = s.getOutputStream();
 			OutputStreamWriter writer = new OutputStreamWriter(output);

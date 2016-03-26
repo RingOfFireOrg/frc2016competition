@@ -1,6 +1,5 @@
 package org.usfirst.frc.team3459.robot;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -13,8 +12,8 @@ public class PiClient {
 	
 	final int PORT = 5801;
 	
-	final byte[] LOCAL_IP = new byte[] {roborio-3459-frc.local}; 
-    final byte[] REMOTE_IP = new byte[] {raspberrypi.local};
+	final String LOCAL_IP = new String("roborio-3459-frc.local"); 
+    final String REMOTE_IP = new String("raspberrypi.local");
     final long INTERVAL = 1000;
     int port = 5801;
     long lastQuery = 0;
@@ -23,7 +22,7 @@ public class PiClient {
 	
 	}
 	
-	private String readLine(InputStreamReader reader) {
+	private String readLine(InputStreamReader reader) throws IOException {
         // http://stackoverflow.com/questions/8473382/reading-content-from-file-in-j2me
         int readChar = reader.read();
         StringBuffer string = new StringBuffer("");
@@ -50,8 +49,8 @@ public class PiClient {
 		 }
 		 try {
 			
-			InetAddress localAddress = InetAddress.getByAddress(LOCAL_IP);
-			InetAddress remoteAddress = InetAddress.getByAddress(REMOTE_IP);
+			InetAddress localAddress = InetAddress.getByName(LOCAL_IP);
+			InetAddress remoteAddress = InetAddress.getByName(REMOTE_IP);
 
 			int localPort = port;
 			port += 1;

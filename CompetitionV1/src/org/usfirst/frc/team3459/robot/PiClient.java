@@ -70,7 +70,7 @@ public class PiClient {
 			if(answer.contains("H") ){
 				return true;
 			} else {
-				return false;
+				return true;
 			}
 
 		} catch (UnknownHostException e) {

@@ -24,6 +24,9 @@ public class Shooter implements StateMachine<Shooter.State>{
 	
 	private long startShootUp = 0;
 	private long startTimeShootUp = 2000;
+
+	PiClient myPi = new PiClient();
+
 	//***************************************************************************************
 	
 	private CANTalon motor1, motor2;
@@ -74,8 +77,14 @@ public class Shooter implements StateMachine<Shooter.State>{
 			}
 			
 			if(startFire) {
-				trigger.fire();
-				startFire = false;
+				if(myPi.retrieveTargetingState() == true){
+					trigger.fire();
+					startFire = false;
+				}
+				else if(myPi.retrieveTargetingState() == false && overRide.get){
+					trigger.fire();
+					startFire = false;
+				}
 			}
 			break;
 		

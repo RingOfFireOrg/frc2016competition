@@ -79,9 +79,11 @@ public class Robot extends SampleRobot {
 			
 			if(fireB.get()) {
 				if(shooter.getState() == Shooter.State.SHOOTUP) {
-					// test using pi and test override before shooting
-					shooter.fire();
-					// end of test pi and fire
+					if(overRide.get()) {
+	  					shooter.fire();
+	 		 	    } else if (myPi.retrieveTargetingState()) {
+	 				    shooter.fire();
+	 			    }
 			    } else {
 			    	shooter.fire();
 			    }

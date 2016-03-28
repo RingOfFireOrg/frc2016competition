@@ -61,7 +61,10 @@ public class Robot extends SampleRobot {
 		}
 		driveTrain.tankDrive(0, 0);
 		driveTrain.update(); 
+		
+		
 	}
+	
 
 	public void operatorControl() {
 		while (isOperatorControl() && isEnabled()) {
@@ -73,6 +76,16 @@ public class Robot extends SampleRobot {
 			shooter.update();
 			
 			Timer.delay(0.005);
+			
+			if(fireB.get()) {
+				if(shooter.getState() == Shooter.State.SHOOTUP) {
+					// test using pi and test override before shooting
+					shooter.fire();
+					// end of test pi and fire
+			    } else {
+			    	shooter.fire();
+			    }
+			}
 		}
 		shooter.setState(Shooter.State.DISABLE);
 	}

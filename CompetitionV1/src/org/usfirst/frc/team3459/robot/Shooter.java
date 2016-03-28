@@ -77,15 +77,9 @@ public class Shooter implements StateMachine<Shooter.State>{
 			}
 			
 			if(startFire) {
-				if(myPi.retrieveTargetingState()){
 					trigger.fire();
 					startFire = false;
 				}
-				else if(overRide.get){
-					trigger.fire();
-					startFire = false;
-				}
-			}
 			break;
 		
 		case SHOOTDOWN:

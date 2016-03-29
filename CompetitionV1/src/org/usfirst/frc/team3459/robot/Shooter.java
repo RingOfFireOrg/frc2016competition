@@ -9,7 +9,7 @@ public class Shooter implements StateMachine<Shooter.State>{
 	//negative speed = in
 	public static final double INTAKESPEED = -3000;
 	public static final double SHOOTDOWNSPEED = 4500;
-	public static final double SHOOTUPSPEED = 5000;
+	public static final double SHOOTUPSPEED = 5700;
 	public static final double STOP = 0;
 	
 	private double lastSpeed = 0;
@@ -30,8 +30,6 @@ public class Shooter implements StateMachine<Shooter.State>{
 	
 	private long startShootUp = 0;
 	private long startTimeShootUp = 2000;
-
-	PiClient myPi = new PiClient();
 
 	//***************************************************************************************
 	

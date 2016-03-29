@@ -11663,3 +11663,53 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY WPILib_Java_Robot_Development 1 0 2016-03-28 20:24:44.627
 !MESSAGE Targets: deploy, Mode: run
+!SESSION 2016-03-28 20:41:22.233 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-28 20:41:50.921
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Wake Robotics Member'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:41:52.294
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:41:52.297
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:41:52.300
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:41:52.352
+!MESSAGE Installedcpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:41:52.402
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:41:52.403
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-28 20:47:57.559
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-28 20:47:57.560
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:48:31.623
+!MESSAGE [edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@28fc7156, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@1c17d98c, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5d88471a, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@6a4fb518, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@21721fc6, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@30b69dd, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@1c244e31, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@b54cfd8, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3ae96d5b, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@62f4ae5a, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5c1f31f3, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@71980fa7, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@6a377a, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@472bcf53, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@629eeeec, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@53ca202f, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@24a1ccb, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@1b821a86, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@e7e6e94]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:48:31.624
+!MESSAGE [edu.wpi.first.wpilib.plugins.core.wizards.Tag@cb7ec2c, edu.wpi.first.wpilib.plugins.core.wizards.Tag@5e491535, edu.wpi.first.wpilib.plugins.core.wizards.Tag@55947250, edu.wpi.first.wpilib.plugins.core.wizards.Tag@28e3bcb8, edu.wpi.first.wpilib.plugins.core.wizards.Tag@1b06e304, edu.wpi.first.wpilib.plugins.core.wizards.Tag@d70bdec, edu.wpi.first.wpilib.plugins.core.wizards.Tag@7b8058e0, edu.wpi.first.wpilib.plugins.core.wizards.Tag@4eb32d54, edu.wpi.first.wpilib.plugins.core.wizards.Tag@6281f945, edu.wpi.first.wpilib.plugins.core.wizards.Tag@6a16b724, edu.wpi.first.wpilib.plugins.core.wizards.Tag@1328a5de, edu.wpi.first.wpilib.plugins.core.wizards.Tag@4426f362, edu.wpi.first.wpilib.plugins.core.wizards.Tag@29007172, edu.wpi.first.wpilib.plugins.core.wizards.Tag@76705ce1, edu.wpi.first.wpilib.plugins.core.wizards.Tag@202001a4]
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-28 20:50:43.915
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-28 20:50:43.920
+!MESSAGE Targets: deploy, Mode: run

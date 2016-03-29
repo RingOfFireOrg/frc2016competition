@@ -55,24 +55,24 @@ public class Robot extends SampleRobot {
 	}
 
 	public void autonomous() {
-//		double base = 0.60;
-//		double rightFactor = 1.00;
-//		long start = System.currentTimeMillis();
-//		long elapsed;
-//		long t1 = 14000;
-//		
-//		while(isAutonomous() && isEnabled()) {
-//			elapsed = System.currentTimeMillis() - start;
-//			
-//			if(elapsed < t1) {
-//				driveTrain.tankDrive(base,base*rightFactor);
-//			} else {
-//				driveTrain.tankDrive(0, 0);	
-//			}
-//			driveTrain.update();
-//		}
-//		driveTrain.tankDrive(0, 0);
+		double base = 0.60;
+		double rightFactor = 1.00;
+		long start = System.currentTimeMillis();
+		long elapsed;
+		long t1 = 14000;
+		
+		while(isAutonomous() && isEnabled()) {
+			elapsed = System.currentTimeMillis() - start;
+			
+			if(elapsed < t1) {
+				driveTrain.tankDrive(base,base*rightFactor);
+			} else {
+				driveTrain.tankDrive(0, 0);	
+			}
+		}
+		driveTrain.tankDrive(0, 0);
 	}
+	
 
 	public void operatorControl() {
 		shooter.setState(Shooter.State.DISABLE);
@@ -87,7 +87,20 @@ public class Robot extends SampleRobot {
 			
 			Timer.delay(0.005);
 			
-			System.out.println(shooter.toString());
+
+//			System.out.println(shooter.toString());
+
+			if(fireB.get()) {
+				if(shooter.getState() == Shooter.State.SHOOTUP) {
+					if(overRide.get()) {
+	  					shooter.fire();
+	 		 	    } else if (myPi.retrieveTargetingState()) {
+	 				    shooter.fire();
+	 			    }
+			    } else {
+			    	shooter.fire();
+			    }
+			}
 		}
 		shooter.setState(Shooter.State.DISABLE);
 	}

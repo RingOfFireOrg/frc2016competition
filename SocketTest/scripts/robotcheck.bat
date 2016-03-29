@@ -1,0 +1,1 @@
+ping raspberrypi.local -t

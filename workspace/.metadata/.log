@@ -11619,3 +11619,47 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY WPILib_Java_Robot_Development 1 0 2016-03-28 20:01:47.675
 !MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-28 20:10:07.909
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-28 20:10:07.910
+!MESSAGE Targets: deploy, Mode: run
+!SESSION 2016-03-28 20:23:38.352 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product -data C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\workspace -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-03-28 20:24:01.665
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Wake Robotics Member'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:24:01.752
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:24:01.761
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:24:01.767
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:24:01.838
+!MESSAGE Installedcpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:24:01.846
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-03-28 20:24:01.847
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-28 20:24:44.626
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Documents\GitHub\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-03-28 20:24:44.627
+!MESSAGE Targets: deploy, Mode: run

@@ -30,6 +30,9 @@ public class Shooter implements StateMachine<Shooter.State>{
 	
 	private long startShootUp = 0;
 	private long startTimeShootUp = 2000;
+
+	PiClient myPi = new PiClient();
+
 	//***************************************************************************************
 	
 	private VelocityTalon talon1, talon2;
@@ -86,9 +89,9 @@ public class Shooter implements StateMachine<Shooter.State>{
 			}
 			
 			if(startFire) {
-				trigger.fire();
-				startFire = false;
-			}
+					trigger.fire();
+					startFire = false;
+				}
 			break;
 		
 		case SHOOTDOWN:

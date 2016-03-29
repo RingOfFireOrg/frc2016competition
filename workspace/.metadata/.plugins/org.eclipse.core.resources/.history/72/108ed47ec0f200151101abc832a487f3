@@ -1,0 +1,120 @@
+package org.usfirst.frc.team3459.ptlibj;
+
+import edu.wpi.first.wpilibj.CANTalon;
+
+/**
+ * @author Wake Robotics Member
+ *
+ * A wrapper for a CANTalon that self calibrates the F value based on the Talon User Guide
+ */
+public class VelocityTalon {
+	public static final double SCALE = 1023;
+	public static final double TIME_CONST = 600;
+	
+	private boolean inTest = false;
+	private double speed;
+	private double f = 0;
+	
+	private CANTalon canTalon;
+	private int nativeUnitsPerRev;
+	
+	private StringBuilder toStringBuilder;
+	
+	/**
+	 * @param id the Talons ID in the CAN system, see the roborio local page to find/set the ID
+	 * @param feedBack the feedback device you are using
+	 * @param codesPerRev the number of codes the encoder counts per revolution
+	 * @return the newly constructed VelocityTalon
+	 */
+	public static VelocityTalon createTalon(int id, CANTalon.FeedbackDevice feedBack, int codesPerRev) {
+		int nativeUnitsPerRev;
+		
+		switch(feedBack) {
+		case QuadEncoder:	
+			nativeUnitsPerRev = codesPerRev*4;
+			return new VelocityTalon(id,feedBack,nativeUnitsPerRev,codesPerRev);
+		default:
+			return null;
+		}
+	}
+	
+	/**
+	 * @param id the Talons ID in the CAN system, see the roborio local page to find/set the ID
+	 * @param feedBack the feedback device you are using
+	 * @param nativeUnitsPerRev the number of Talon native units per revolution
+	 * @param codesPerRev the number of codes the encoder counts per revolution
+	 */
+	public VelocityTalon(int id, CANTalon.FeedbackDevice feedBack, int nativeUnitsPerRev, int codesPerRev) {
+		canTalon = new CANTalon(id);
+		canTalon.setFeedbackDevice(feedBack);
+		canTalon.configEncoderCodesPerRev(codesPerRev);
+		
+		canTalon.reverseSensor(false);
+		
+		canTalon.configPeakOutputVoltage(+12.0f, -12.0f);
+		canTalon.configNominalOutputVoltage(+0.0f, -0.0f);
+		
+		canTalon.setProfile(0);
+		
+		this.nativeUnitsPerRev = nativeUnitsPerRev;
+		
+		toStringBuilder = new StringBuilder();
+	}
+	
+	/**
+	 * @param inTest
+	 */
+	public synchronized void setInTest(boolean inTest) {
+		this.inTest = inTest;
+		if(inTest) {
+			canTalon.changeControlMode(CANTalon.TalonControlMode.PercentVbus);
+		} else {
+			canTalon.changeControlMode(CANTalon.TalonControlMode.Speed);
+		}
+	}
+	
+	public synchronized void setSpeed(double speed) {
+		this.speed = speed;
+	}
+	
+	public synchronized void update() {
+		if(inTest) {
+			canTalon.set(Double.MAX_VALUE);
+		} else {
+			canTalon.set(speed);
+		}
+	}
+	
+	public void setF(double f) {
+		canTalon.setF(f);
+	}
+	
+	public void setPID(double p, double i, double d) {
+		canTalon.setP(p);
+		canTalon.setI(i);
+		canTalon.setD(d);
+	}
+	
+	public void updateF() {
+		setF(f);
+	}
+	
+	public String getFSuggestion() {
+		f = (SCALE*TIME_CONST)/(Math.abs(canTalon.getSpeed())*nativeUnitsPerRev);
+		return "F: " + f;
+	}
+	
+	public synchronized String toString() {
+		toStringBuilder.setLength(0);
+		
+		toStringBuilder.append("out: " + canTalon.getOutputVoltage()/canTalon.getBusVoltage());
+		toStringBuilder.append("\t|| ");
+		toStringBuilder.append("spd: " + canTalon.getSpeed());
+		toStringBuilder.append("\t|| ");
+		toStringBuilder.append("err: " + canTalon.getClosedLoopError());
+		toStringBuilder.append("\t|| ");
+		toStringBuilder.append("trg: " + speed);
+		
+		return toStringBuilder.toString();
+	}
+}

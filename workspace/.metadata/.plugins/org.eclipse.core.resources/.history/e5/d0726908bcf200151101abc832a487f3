@@ -1,0 +1,14 @@
+package org.usfirst.frc.team3459.resources;
+
+import edu.wpi.first.wpilibj.Encoder;
+
+public class SmartEncoder extends Encoder {
+	private long lastCall = 0;
+	
+	
+	public SmartEncoder(int p0, int p1) {
+		super(p0,p1);
+	}
+	
+	
+}

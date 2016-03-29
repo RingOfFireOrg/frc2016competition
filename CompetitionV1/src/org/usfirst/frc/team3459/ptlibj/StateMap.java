@@ -60,7 +60,7 @@ public class StateMap<S> {
 		if(activeButton == null)
 			return;
 		
-		System.out.println("Action Received");
+//		System.out.println("Action Received");
 		stateMachine.setState(activeButton.getValue());	//Sets the StateMachine to have the value
 	}
 	

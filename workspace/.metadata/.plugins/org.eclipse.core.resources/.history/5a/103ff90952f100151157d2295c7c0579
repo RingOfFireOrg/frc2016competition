@@ -1,0 +1,92 @@
+package org.usfirst.frc.team3459.robot;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map.Entry;
+
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Joystick;
+/**
+ * @author Kyle Brown
+ *
+ * @param <S> The State Type
+ */
+public class StateMap<S> {
+	private List<Entry<Integer,S>> entryList = new ArrayList<>();
+	/**
+	 * The StateMachine<T> being controlled by the StateMaps
+	 */
+	private StateMachine<S> stateMachine;
+	/**
+	 * The Joystick on which the buttons are located
+	 */
+	private Joystick joystick;
+	/**
+	 * Constructs a StateMap with the corresponding StateMachine and Joystick
+	 * @param stateMachine
+	 * @param joystick
+	 */
+	public StateMap(StateMachine<S> stateMachine, Joystick joystick) {
+		this.stateMachine = stateMachine;
+		this.joystick = joystick;
+	}
+	
+	/**
+	 * Adds a Button -> State mapping to the StateMap
+	 * @param key The button number
+	 * @param value The state
+	 */
+	protected synchronized void put(Integer key, S value) {
+		entryList.add(new Pair<Integer,S>(key, value));
+	}
+	
+	/**
+	 * Causes the StateMap to update the StateMachine based on the current value
+	 * of the Joystick
+	 */
+	public synchronized void update() {
+		Entry<Integer,S> activeButton = null;
+		
+		for(Entry<Integer,S> entry : entryList) {
+			if(joystick.getRawButton(entry.getKey())) {
+				if(activeButton != null)
+					return;
+				
+				activeButton = entry;
+			}
+		}
+		
+		if(activeButton == null)
+			return;
+		
+		
+		DriverStation.reportError("Action Received", printTrace);
+		stateMachine.setState(activeButton.getValue());	//Sets the StateMachine to have the value
+	}
+	
+	class Pair<K,V> implements Entry<K,V> {
+		K key;
+		V value;
+		
+		public Pair(K key,V value) {
+			this.key = key;
+			this.value = value;
+		}
+
+		@Override
+		public K getKey() {
+			return key;
+		}
+
+		@Override
+		public V getValue() {
+			return value;
+		}
+
+		@Override
+		public V setValue(V value) {
+			this.value = value;
+			return value;
+		}
+	}
+}

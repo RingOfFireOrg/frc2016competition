@@ -6,8 +6,10 @@ import org.usfirst.frc.team3459.ptlibj.Trigger;
 import org.usfirst.frc.team3459.ptlibj.VelocityTalon;
 
 public class Shooter implements StateMachine<Shooter.State>{
-	public static final double INSPEED = 0.6;
-	public static final double OUTSPEED = 1500;//-1;
+	//negative speed = in
+	public static final double INTAKESPEED = -3000;
+	public static final double SHOOTDOWNSPEED = 4500;
+	public static final double SHOOTUPSPEED = 5000;
 	public static final double STOP = 0;
 	
 	private double lastSpeed = 0;
@@ -30,15 +32,21 @@ public class Shooter implements StateMachine<Shooter.State>{
 	private long startTimeShootUp = 2000;
 	//***************************************************************************************
 	
-	private VelocityTalon motor1, motor2;
+	private VelocityTalon talon1, talon2;
 	private Trigger trigger;
 	public Tilter tilter;
 	
 	public Shooter(VelocityTalon m1, VelocityTalon m2, int s1, int t1, int t2) {
-		motor1 = m1;
-		motor2 = m2;
+		talon1 = m1;
+		talon2 = m2;
 		trigger = new Trigger(s1);
 		tilter = new Tilter(t1,t2,false);		//invert tilter direction (change "false" to "true")
+		
+		talon1.setF(1.5);
+		talon2.setF(1.5);
+		
+		talon1.setPID(0, 0, 0);
+		talon2.setPID(0, 0, 0);
 	}
 	
 	public void update() {
@@ -46,11 +54,11 @@ public class Shooter implements StateMachine<Shooter.State>{
 		
 		switch(state) {
 		case MOTOR_OUT:
-			setWheels(OUTSPEED);
+			setWheels(SHOOTDOWNSPEED);
 			break;
 		
 		case MOTOR_IN:
-			setWheels(INSPEED);
+			setWheels(INTAKESPEED);
 			break;
 			
 		case DISABLE:
@@ -59,7 +67,7 @@ public class Shooter implements StateMachine<Shooter.State>{
 		
 		case INTAKE:
 			tilter.setDown();
-			setWheels(INSPEED);
+			setWheels(INTAKESPEED);
 			break;
 		
 		case SHOOTUP:
@@ -72,7 +80,7 @@ public class Shooter implements StateMachine<Shooter.State>{
 			}
 			
 			if(System.currentTimeMillis()-startShootUp > startTimeShootUp) {
-				setWheels(OUTSPEED);
+				setWheels(SHOOTUPSPEED);
 			} else {
 				setWheels(STOP);
 			}
@@ -93,7 +101,7 @@ public class Shooter implements StateMachine<Shooter.State>{
 			
 			if(startFire) {
 				startFireDown = System.currentTimeMillis();
-				setWheels(OUTSPEED);
+				setWheels(SHOOTDOWNSPEED);
 				startFire = false;
 				firing = true;
 			}
@@ -142,8 +150,10 @@ public class Shooter implements StateMachine<Shooter.State>{
 		if(lastSpeed == val) 
 			return;
 		
-		motor1.setSpeed(val);
-		motor2.setSpeed(val);
+		talon1.setSpeed(val);
+		talon2.setSpeed(-val);
+		talon1.update();
+		talon2.update();
 		
 		lastSpeed = val;
 	}
@@ -175,6 +185,6 @@ public class Shooter implements StateMachine<Shooter.State>{
 	}
 	
 	public String toString() {		
-		return "M1::" + motor1.toString() + "\nM2::" + motor2.toString();
+		return "M1::" + talon1.toString() + "\nM2::" + talon2.toString();
 	}
 }

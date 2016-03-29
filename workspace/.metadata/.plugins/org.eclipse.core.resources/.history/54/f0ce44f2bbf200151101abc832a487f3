@@ -1,0 +1,7 @@
+package org.usfirst.frc.team3459.resources;
+
+import edu.wpi.first.wpilibj.Encoder;
+
+public class SmartEncoder extends Encoder {
+
+}

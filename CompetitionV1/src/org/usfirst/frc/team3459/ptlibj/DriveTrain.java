@@ -6,7 +6,8 @@ import edu.wpi.first.wpilibj.RobotDrive;
  * @author Kyle Brown
  */
 public class DriveTrain extends RobotDrive {
-	public enum State {SPEED,DISPLACEMENT};
+	public static final double AUTOSPEED = 1;
+	public enum State {SPEED,AUTODRIVE};
 	
 	private SmartEncoder lEncoder;
 	private SmartEncoder rEncoder;
@@ -29,11 +30,11 @@ public class DriveTrain extends RobotDrive {
 		this.leftSpeed = leftSpeed;
 		this.rightSpeed = rightSpeed;
 		
-		update();
+		super.tankDrive(leftSpeed, rightSpeed);
 	}
 
 	public void displace(int lDisplacement, int rDisplacement) {
-		state = State.DISPLACEMENT;
+		state = State.AUTODRIVE;
 		lEncoder.reset();
 		rEncoder.reset();
 		
@@ -41,20 +42,19 @@ public class DriveTrain extends RobotDrive {
 		this.rDisplacement = rDisplacement;
 	}
 	
-	public void update() {
+	public void updateAutoDrive() {
 		if(state == State.SPEED) {
-			super.tankDrive(leftSpeed, rightSpeed);	
 			return;
 		}
 		
 		if(lEncoder.get() < lDisplacement) {
-			leftSpeed = 1;
+			leftSpeed = AUTOSPEED;
 		} else {
 			leftSpeed = 0;
 		}
 		
 		if(rEncoder.get() < rDisplacement) {
-			rightSpeed = 1;
+			rightSpeed = AUTOSPEED;
 		} else {
 			rightSpeed = 0;
 		}

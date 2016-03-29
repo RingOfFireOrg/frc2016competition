@@ -1,0 +1,92 @@
+package org.usfirst.frc.team3459.resources;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map.Entry;
+
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Joystick;
+/**
+ * @author Kyle Brown
+ *
+ * @param <S> The State Type
+ */
+public class StateMap<S> {
+	/**
+	 * The list of pairings
+	 */
+	private List<Pair<Integer,S>> pairList = new ArrayList<>();
+	/**
+	 * The StateMachine<T> being controlled by the StateMaps
+	 */
+	private StateMachine<S> stateMachine;
+	/**
+	 * The Joystick on which the buttons are located
+	 */
+	private Joystick joystick;
+	/**
+	 * Constructs a StateMap with the corresponding StateMachine and Joystick
+	 * @param stateMachine
+	 * @param joystick
+	 */
+	public StateMap(StateMachine<S> stateMachine, Joystick joystick) {
+		this.stateMachine = stateMachine;
+		this.joystick = joystick;
+	}
+	
+	/**
+	 * Adds a Button -> State mapping to the StateMap
+	 * @param key The button number
+	 * @param value The state
+	 */
+	protected synchronized void put(Integer key, S value) {
+		pairList.add(new Pair<Integer,S>(key, value));
+	}
+	
+	/**
+	 * Causes the StateMap to update the StateMachine based on the current value
+	 * of the Joystick
+	 */
+	public synchronized void update() {
+		Pair<Integer,S> activeButton = null;
+		
+		for(Pair<Integer,S> pair : pairList) {
+			if(joystick.getRawButton(pair.getKey())) {
+				if(activeButton != null)
+					return;
+				
+				activeButton = pair;
+			}
+		}
+		
+		if(activeButton == null)
+			return;
+		
+		System.out.println("Action Received");
+stateMachine.setState(activeButton.getValue());	//Sets the StateMachine to have the value
+	}
+	
+	/**
+	 * @author Kyle Brown
+	 *
+	 * @param <K> The Key type
+	 * @param <V> The Value type
+	 */
+	class Pair<K,V> {
+		K key;
+		V value;
+		
+		public Pair(K key,V value) {
+			this.key = key;
+			this.value = value;
+		}
+
+		public K getKey() {
+			return key;
+		}
+
+		public V getValue() {
+			return value;
+		}
+	}
+}

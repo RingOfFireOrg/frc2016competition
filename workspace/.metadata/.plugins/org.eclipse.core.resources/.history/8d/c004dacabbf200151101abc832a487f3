@@ -1,0 +1,5 @@
+package org.usfirst.frc.team3459.resources;
+
+public class SmartEncoder extends Encoder {
+
+}

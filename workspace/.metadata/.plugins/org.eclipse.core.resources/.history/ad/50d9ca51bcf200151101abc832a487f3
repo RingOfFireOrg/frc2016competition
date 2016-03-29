@@ -1,0 +1,23 @@
+package org.usfirst.frc.team3459.resources;
+
+import edu.wpi.first.wpilibj.Encoder;
+
+public class SmartEncoder extends Encoder {
+	private long lastCall = 0;
+	private long now;
+	private long elapsed;
+	
+	private double lastPos = 0;
+	private double pos;
+	
+	public SmartEncoder(int p0, int p1) {
+		super(p0,p1);
+	}
+	
+	public String getState() {
+		now = System.currentTimeMillis();
+		elapsed = now - lastCall;
+		
+		pos = get();
+	}
+} 

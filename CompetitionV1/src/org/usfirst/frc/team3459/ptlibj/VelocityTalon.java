@@ -25,6 +25,8 @@ public class VelocityTalon {
 	 * @param feedBack the feedback device you are using
 	 * @param codesPerRev the number of codes the encoder counts per revolution
 	 * @return the newly constructed VelocityTalon
+	 * 
+	 * supported FeedbackDevices: QuadEncoder
 	 */
 	public static VelocityTalon createTalon(int id, CANTalon.FeedbackDevice feedBack, int codesPerRev) {
 		int nativeUnitsPerRev;
@@ -50,6 +52,8 @@ public class VelocityTalon {
 		canTalon.configEncoderCodesPerRev(codesPerRev);
 		
 		canTalon.reverseSensor(false);
+		
+		canTalon.changeControlMode(CANTalon.TalonControlMode.Speed);
 		
 		canTalon.configPeakOutputVoltage(+12.0f, -12.0f);
 		canTalon.configNominalOutputVoltage(+0.0f, -0.0f);
@@ -116,5 +120,10 @@ public class VelocityTalon {
 		toStringBuilder.append("trg: " + speed);
 		
 		return toStringBuilder.toString();
+	}
+	
+	public String getSpdErr() {
+		return "spd_err: " + (canTalon.getSpeed()-speed);
+
 	}
 }

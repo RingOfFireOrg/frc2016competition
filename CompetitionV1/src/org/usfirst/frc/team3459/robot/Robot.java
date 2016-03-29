@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3459.robot;	
 
 import org.usfirst.frc.team3459.ptlibj.DriveTrain;
+import org.usfirst.frc.team3459.ptlibj.SmartEncoder;
 import org.usfirst.frc.team3459.ptlibj.VelocityTalon;
 
 import edu.wpi.first.wpilibj.CANTalon;
@@ -16,14 +17,12 @@ public class Robot extends SampleRobot {
 	private static double I = 0;
 	private static double D = 0;
 	
-	
 	DriveTrain driveTrain;
 	Joystick leftStick;
 	Joystick rightStick;
 
 	Joystick controlStick;
 	JoystickButton fireB;
-
 	
 	JoystickButton overRide;
 	
@@ -35,11 +34,10 @@ public class Robot extends SampleRobot {
 	PiClient myPi = new PiClient();
 	
 	public Robot() {
-//		driveTrain = new DriveTrain(
-//				new RobotDrive(0, 1), 
-//				new SmartEncoder(0, 1),
-//				new SmartEncoder(2, 3)
-//			);
+		driveTrain = new DriveTrain(0,1,
+				new SmartEncoder(0, 1),
+				new SmartEncoder(2, 3)
+			);
 		leftStick = new Joystick(0);
 		rightStick = new Joystick(1);
 
@@ -49,9 +47,11 @@ public class Robot extends SampleRobot {
 		overRide = new JoystickButton(controlStick, 7);
 
 		talon1 = VelocityTalon.createTalon(14,CANTalon.FeedbackDevice.QuadEncoder,20);
-		talon1 = VelocityTalon.createTalon(11,CANTalon.FeedbackDevice.QuadEncoder,20);
+		talon2 = VelocityTalon.createTalon(11,CANTalon.FeedbackDevice.QuadEncoder,20);
 		shooter = new Shooter(talon1, talon2, 3, 0, 1);
-//		stateMap = new ShooterMap(shooter,controlStick);
+		stateMap = new ShooterMap(shooter,controlStick);
+		
+		getFPID();
 	}
 
 	public void autonomous() {
@@ -72,26 +72,30 @@ public class Robot extends SampleRobot {
 //			driveTrain.update();
 //		}
 //		driveTrain.tankDrive(0, 0);
-//		driveTrain.update(); 
 	}
 
 	public void operatorControl() {
-		shooter.setState(Shooter.State.SHOOTUP);
+		shooter.setState(Shooter.State.DISABLE);
 		while (isOperatorControl() && isEnabled()) {
 			driveTrain.tankDrive(-leftStick.getY(), -rightStick.getY());
 			
 			stateMap.update();
 			shooter.update();
 			
-//			System.out.println(shooter.toString());
+			if(fireB.get())
+				shooter.fire();
 			
 			Timer.delay(0.005);
+			
+			System.out.println(shooter.toString());
 		}
 		shooter.setState(Shooter.State.DISABLE);
 	}
 	
 	//F recommendation: 1.5
 	public void test() {
+		String suggestionText = "";
+		
 		talon1.setF(0);
 		talon2.setF(0);
 		
@@ -102,28 +106,36 @@ public class Robot extends SampleRobot {
 		boolean lastPress = false;
 		
 		talon1.setInTest(testMode);
-		talon1.setInTest(testMode);
+		talon2.setInTest(testMode);
 		
 		while(isTest() && isEnabled()) {
 			if(controlStick.getRawButton(2)) {
 				if(!lastPress) {
 					testMode = !testMode;
 					talon1.setInTest(testMode);
-					talon1.setInTest(testMode);
+					talon2.setInTest(testMode);
 					
 					if(!testMode) {
 						talon1.updateF();
 						talon2.updateF();
-						
-						System.out.println("T1: " + talon1.getFSuggestion() + " T2: " + talon2.getFSuggestion());
+
+						suggestionText = "T1: " + talon1.getFSuggestion() + " T2: " + talon2.getFSuggestion();
 					}
 				}
 				
 				lastPress = true;
+			} else {
+				lastPress = false;
 			}
 			
-			talon1.setSpeed(controlStick.getThrottle()*5000);
-			talon2.setSpeed(controlStick.getThrottle()*5000);
+			if(!testMode) {
+				talon1.setSpeed(controlStick.getThrottle()*5000);
+				talon2.setSpeed(controlStick.getThrottle()*5000);
+				
+				System.out.println(suggestionText);
+				System.out.println("Talon 1:: " + talon1.toString());
+				System.out.println("Talon 2:: " + talon2.toString());
+			}
 			
 			talon1.update();
 			talon2.update();

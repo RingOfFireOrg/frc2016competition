@@ -1,6 +1,0 @@
-package org.usfirst.frc.team3459.robot;
-
-public interface Settable<T> {
-
-	void set(T t);
-}

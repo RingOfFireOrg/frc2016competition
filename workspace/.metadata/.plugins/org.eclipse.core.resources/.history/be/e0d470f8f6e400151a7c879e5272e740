@@ -1,5 +1,0 @@
-package org.usfirst.frc.team3459.robot;
-
-public interface StateMachine<T> {
-	void set(T t);
-}

@@ -1,0 +1,71 @@
+package org.usfirst.frc.team3459.resources;
+
+import edu.wpi.first.wpilibj.RobotDrive;
+
+public class DriveTrain extends RobotDrive {
+	public enum State {SPEED,DISPLACEMENT};
+	
+	private RobotDrive drive;
+	private SmartEncoder lEncoder;
+	private SmartEncoder rEncoder;
+	
+	private State state = State.SPEED;
+	private int lDisplacement = 0;
+	private int rDisplacement = 0;
+	private double leftSpeed, rightSpeed;
+	
+	private int count = 0;
+	
+	public DriveTrain(int p0, int p1, SmartEncoder e1, SmartEncoder e2) {
+		super(p0, p1);
+		this.lEncoder = e2;
+		this.rEncoder = e1;
+	}
+	
+	public void tankDrive(double leftSpeed, double rightSpeed) {
+		state = State.SPEED;
+		this.leftSpeed = leftSpeed;
+		this.rightSpeed = rightSpeed;
+		
+		update();
+	}
+	
+	public void displace(int lDisplacement, int rDisplacement) {
+		state = State.DISPLACEMENT;
+		lEncoder.reset();
+		rEncoder.reset();
+		
+		this.lDisplacement = lDisplacement;
+		this.rDisplacement = rDisplacement;
+	}
+	
+	public void update() {
+		if(state == State.SPEED) {
+			drive.tankDrive(leftSpeed, rightSpeed);	
+			return;
+		}
+		
+		if(lEncoder.get() < lDisplacement) {
+			leftSpeed = 1;
+		} else {
+			leftSpeed = 0;
+		}
+		
+		if(rEncoder.get() < rDisplacement) {
+			rightSpeed = 1;
+		} else {
+			rightSpeed = 0;
+		}
+		
+		drive.tankDrive(leftSpeed, rightSpeed);
+	}
+	
+	public void printEncoders() {
+		count++;
+		if(count%10 != 0)
+			return;
+		
+		System.out.println(lEncoder.getState("Encoder_L"));
+		System.out.println(rEncoder.getState("Encoder_R"));
+	}
+}

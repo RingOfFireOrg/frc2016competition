@@ -82,13 +82,7 @@ public class Robot extends SampleRobot {
 			stateMap.update();
 			shooter.update();
 			
-			if(fireB.get())
-				shooter.fire();
-			
 			Timer.delay(0.005);
-			
-
-//			System.out.println(shooter.toString());
 
 			if(fireB.get()) {
 				if(shooter.getState() == Shooter.State.SHOOTUP) {

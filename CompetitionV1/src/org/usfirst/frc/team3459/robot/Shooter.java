@@ -6,7 +6,7 @@ public class Shooter implements StateMachine<Shooter.State>{
 	public static final double INSPEED = -0.6;
 	public static final double OUTSPEED = 1;
 	public static final double STOP = 0;
-	private double lastSpeed = 0;
+	private double lastSpeed = 0; 
 	
 	public static final long FIREDURATION = 1000;
 	
@@ -93,6 +93,7 @@ public class Shooter implements StateMachine<Shooter.State>{
 			if(startFire) {
 				startFireDown = System.currentTimeMillis();
 				setWheels(OUTSPEED);
+				trigger.fire();
 				startFire = false;
 				firing = true;
 			}

@@ -7,21 +7,32 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.io.FileWriter;
+import java.io.File;
+import java.io.BufferedWriter;
+
 
 public class PiClient {
 	
 	final int PORT = 5801;
 	
-	final String LOCAL_IP = new String("roborio-3459-frc.local"); 
-    final String REMOTE_IP = new String("raspberrypi.local");
+    final byte[] LOCAL_IP = new byte[] {10, 34, 59, 20}; 
+    final byte[] REMOTE_IP = new byte[] {10, 34, 59, 10};
     final long INTERVAL = 1000;
     int port = 5801;
     long lastQuery = 0;
 	
+    File f;
+	BufferedWriter bw;
+	FileWriter fw;
+	
+	String answer;
+	
 	PiClient(){
 	
 	}
-	
+
+    
 	private String readLine(InputStreamReader reader) throws IOException {
         // http://stackoverflow.com/questions/8473382/reading-content-from-file-in-j2me
         int readChar = reader.read();
@@ -39,6 +50,8 @@ public class PiClient {
 	}
 
 	
+	
+	
 	public boolean retrieveTargetingState(){
 		 Socket s = null;
 		 long now = System.currentTimeMillis();
@@ -49,15 +62,16 @@ public class PiClient {
 		 }
 		 try {
 			
-			InetAddress localAddress = InetAddress.getByName(LOCAL_IP);
-			InetAddress remoteAddress = InetAddress.getByName(REMOTE_IP);
+	//		InetAddress localAddress = InetAddress.getByAddress(LOCAL_IP);
+			InetAddress remoteAddress = InetAddress.getByAddress(REMOTE_IP);
 
-			int localPort = port;
+	//		int localPort = port;
 			port += 1;
 			if (port > 5810) {
 				port = 5801;
 			}
-			s = new Socket(remoteAddress, 5801, localAddress, localPort);
+		//	s = new Socket(remoteAddress, 5801, localAddress, localPort);
+			s = new Socket(remoteAddress, 5801);
 
 			InputStream input = s.getInputStream();
 			OutputStream output = s.getOutputStream();
@@ -65,12 +79,14 @@ public class PiClient {
 			output.flush();
 			InputStreamReader reader = new InputStreamReader(input);
 			
-			String answer = this.readLine(reader);
-			
+			answer = this.readLine(reader);
+			System.out.print(answer);
 			if(answer.contains("H") ){
+				answer = "";
 				return true;
 			} else {
-				return true;
+				answer = "";
+				return false;
 			}
 
 		} catch (UnknownHostException e) {

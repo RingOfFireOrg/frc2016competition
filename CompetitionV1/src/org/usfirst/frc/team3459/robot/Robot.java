@@ -47,7 +47,7 @@ public class Robot extends SampleRobot {
 		double rightFactor = 1.00;
 		long start = System.currentTimeMillis();
 		long elapsed;
-		long t1 = 14000;
+		long t1 = 11000;
 		
 		while(isAutonomous() && isEnabled()) {
 			elapsed = System.currentTimeMillis() - start;

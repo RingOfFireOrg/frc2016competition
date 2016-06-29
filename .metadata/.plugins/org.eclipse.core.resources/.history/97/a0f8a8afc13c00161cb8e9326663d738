@@ -1,0 +1,121 @@
+package org.usfirst.frc.team3459.robot;	
+
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.SampleRobot;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.I2C;
+
+public class Robot extends SampleRobot {
+	DriveTrain driveTrain;
+	Joystick leftStick;
+	Joystick rightStick;
+
+	Joystick controlStick;
+	JoystickButton fireB;
+
+	
+	JoystickButton overRide;
+	
+	Shooter shooter;
+	
+	ShooterMap stateMap;
+	
+	PiClient myPi = new PiClient();
+	
+	I2C I2CBus;
+	
+	public Robot() {
+		driveTrain = new DriveTrain(
+		    new RobotDrive(0, 1), 
+		    new Encoder(0, 1),
+			new Encoder(2, 3)
+			);
+		
+		leftStick = new Joystick(0);
+		rightStick = new Joystick(1);
+		controlStick = new Joystick(2);
+		
+		fireB = new JoystickButton(controlStick, 1);
+		overRide = new JoystickButton(controlStick, 7);
+
+		shooter = new Shooter(14, 11, 3, 0, 1);
+		stateMap = new ShooterMap(shooter,controlStick);
+		
+		I2CBus = new I2C(I2C.Port.kOnboard, 0x42);
+	}
+
+	public void autonomous() {
+		double base = 0.80;
+		double rightFactor = 1.00;
+		long start = System.currentTimeMillis();
+		long elapsed;
+		long t1 = 11000;
+		
+		while(isAutonomous() && isEnabled()) {
+			elapsed = System.currentTimeMillis() - start;
+			
+			if(elapsed < t1) {
+				driveTrain.tankDrive(base,base*rightFactor);
+			} else {
+				driveTrain.tankDrive(0, 0);	
+			}
+			driveTrain.update();
+		}
+		driveTrain.tankDrive(0, 0);
+		driveTrain.update(); 
+		
+		
+	}
+	
+	public void LightControl(int num, int red, int green, int blue){
+		byte[] toSend = new byte[1];
+		toSend[0] = (byte)num;
+		I2CBus.transaction(toSend, 1, null, 0); 
+		toSend[0] = (byte)red;
+		I2CBus.transaction(toSend, 1, null, 0);
+		toSend[0] = (byte)green;
+		I2CBus.transaction(toSend, 1, null, 0);
+		toSend[0] = (byte)blue;
+		I2CBus.transaction(toSend, 1, null, 0);
+		Timer.delay(0.01);   //Wait to give time for the lights to update
+		
+	}
+	
+
+	public void operatorControl() {
+		
+		boolean hasSent = false;
+		
+		while (isOperatorControl() && isEnabled()) {
+			driveTrain.tankDrive(-leftStick.getY(), -rightStick.getY());
+			driveTrain.update();
+			driveTrain.printEncoders();
+			
+			stateMap.update();
+			shooter.update();
+			
+			Timer.delay(0.005);
+				
+			if(fireB.get()) {
+				if(shooter.getState() == Shooter.State.SHOOTUP) {
+					shooter.fire();
+			    } else {
+			    	shooter.fire();
+			    }
+			}
+			
+			
+			
+			if (hasSent == false){
+			LightControl(3, 200, 0, 0);
+			hasSent = true;
+			
+			}
+		}
+		shooter.setState(Shooter.State.DISABLE);
+	}
+}
+

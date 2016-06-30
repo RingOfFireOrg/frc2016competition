@@ -115,9 +115,12 @@ public class Robot extends SampleRobot {
 		
 //		Timer.start();
 		
-		double percentSpeed = 1.00;
-		percentSpeed = pref.getDouble("percentSpeed", 1.00); 	//Slow down via SmartDashboard for Outreaches!
+		double percentSpeed = pref.getDouble("percentSpeed", 1.00); 	//Slow down via SmartDashboard for Outreaches!
 		System.out.println("Percent speed: " + percentSpeed);
+		
+		double shooterSpeed = pref.getDouble("shooterSpeed", 1);
+		shooter.setMultiplier(shooterSpeed);
+		System.out.println("Shooter speed: " + shooterSpeed);
 		
 		while (isOperatorControl() && isEnabled()) {
 			
@@ -127,7 +130,7 @@ public class Robot extends SampleRobot {
 
 			stateMap.update();
 			shooter.update();
-
+			
 			Timer.delay(0.005);
 
 			if (fireB.get()) {

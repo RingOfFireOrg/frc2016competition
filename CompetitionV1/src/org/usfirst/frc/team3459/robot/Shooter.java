@@ -6,7 +6,9 @@ public class Shooter implements StateMachine<Shooter.State>{
 	public static final double INSPEED = -0.6;
 	public static final double OUTSPEED = 1;
 	public static final double STOP = 0;
-	private double lastSpeed = 0; 
+	private double lastSpeed = 0;
+	
+	private double multiplier = 1.0;
 	
 	public static final long FIREDURATION = 1000;
 	
@@ -14,6 +16,10 @@ public class Shooter implements StateMachine<Shooter.State>{
 		SHOOTUP, SHOOTDOWN, INTAKE, DOWN, UP, MOTOR_IN, MOTOR_OUT, DISABLE
 	}
 
+	public enum WheelDirection {
+		OUT, IN, STOP 
+	}
+	
 	private State state = State.DISABLE;
 	private boolean changingState = false;
 	
@@ -45,20 +51,20 @@ public class Shooter implements StateMachine<Shooter.State>{
 		
 		switch(state) {
 		case MOTOR_OUT:
-			setWheels(OUTSPEED);
+			setWheelDirection(WheelDirection.OUT);
 			break;
 		
 		case MOTOR_IN:
-			setWheels(INSPEED);
+			setWheelDirection(WheelDirection.IN);
 			break;
 			
 		case DISABLE:
-			setWheels(STOP);
+			setWheelDirection(WheelDirection.STOP);
 			break;
 		
 		case INTAKE:
 			tilter.setDown();
-			setWheels(INSPEED);
+			setWheelDirection(WheelDirection.IN);
 			break;
 		
 		case SHOOTUP:
@@ -71,9 +77,9 @@ public class Shooter implements StateMachine<Shooter.State>{
 			}
 			
 			if(System.currentTimeMillis()-startShootUp > startTimeShootUp) {
-				setWheels(OUTSPEED);
+				setWheelDirection(WheelDirection.OUT);
 			} else {
-				setWheels(STOP);
+				setWheelDirection(WheelDirection.STOP);
 			}
 			
 			if(startFire) {
@@ -84,7 +90,7 @@ public class Shooter implements StateMachine<Shooter.State>{
 		
 		case SHOOTDOWN:
 			if(changingState) {
-				setWheels(STOP);
+				setWheelDirection(WheelDirection.STOP);
 				changingState = false;
 				startDown = System.currentTimeMillis(); 
 				return;
@@ -92,14 +98,14 @@ public class Shooter implements StateMachine<Shooter.State>{
 			
 			if(startFire) {
 				startFireDown = System.currentTimeMillis();
-				setWheels(OUTSPEED);
+				setWheelDirection(WheelDirection.OUT);
 				trigger.fire();
 				startFire = false;
 				firing = true;
 			}
 			
 			if(firing == true && System.currentTimeMillis()-startFireDown > FIREDURATION) {
-				setWheels(STOP);
+				setWheelDirection(WheelDirection.STOP);
 				firing = false;
 			}
 
@@ -112,7 +118,7 @@ public class Shooter implements StateMachine<Shooter.State>{
 		case DOWN:
 			
 			if(changingState) {
-				setWheels(STOP);
+				setWheelDirection(WheelDirection.STOP);
 				changingState = false;
 				startDown = System.currentTimeMillis(); 
 				return;
@@ -121,16 +127,36 @@ public class Shooter implements StateMachine<Shooter.State>{
 			if(System.currentTimeMillis()-startDown > startTimeShootUp) {
 				tilter.setDown();
 			} else {
-				setWheels(STOP);
+				setWheelDirection(WheelDirection.STOP);
 			}
 
 			break;
 			
 		case UP:
 			tilter.setUp();
+			setWheelDirection(WheelDirection.STOP);
+			break;
+		}
+	}
+	
+	public void setWheelDirection(WheelDirection dir) {
+		switch (dir) {
+		case OUT:
+			setWheels(OUTSPEED * multiplier);
+			break;
+		
+		case IN:
+			setWheels(INSPEED);
+			break;
+		
+		case STOP:
 			setWheels(STOP);
 			break;
 		}
+	}
+	
+	public void setMultiplier(double newMultiplier){
+		multiplier = newMultiplier;
 	}
 	
 	/**

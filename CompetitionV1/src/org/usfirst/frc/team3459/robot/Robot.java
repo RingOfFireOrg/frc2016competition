@@ -1,17 +1,20 @@
 package org.usfirst.frc.team3459.robot;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Preferences;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SampleRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.I2C;
 
 public class Robot extends SampleRobot {
 	DriveTrain driveTrain;
 	Joystick leftStick;
 	Joystick rightStick;
+	
+	Preferences pref;
 
 	Joystick controlStick;
 	JoystickButton fireB;
@@ -40,6 +43,8 @@ public class Robot extends SampleRobot {
 		stateMap = new ShooterMap(shooter, controlStick);
 
 		I2CBus = new I2C(I2C.Port.kOnboard, 0x42);
+		
+		pref = Preferences.getInstance();
 	}
 
 	public void autonomous() {
@@ -90,7 +95,7 @@ public class Robot extends SampleRobot {
 	}
 
 	public void operatorControl() {
-
+/*
 		JoystickButton redButton;
 		JoystickButton blueButton;
 		JoystickButton greenButton;
@@ -103,19 +108,22 @@ public class Robot extends SampleRobot {
 		redButton = new JoystickButton(controlStick, 8);
 		greenButton = new JoystickButton(controlStick, 10);		
 		blueButton = new JoystickButton(controlStick, 12);
-
+*/
 				
 		
-		boolean hasSent = false;
+	//	boolean hasSent = false;
 		
 //		Timer.start();
 		
+		double percentSpeed = 1.00;
+		percentSpeed = pref.getDouble("percentSpeed", 1.00); 	//Slow down via SmartDashboard for Outreaches!
+		System.out.println("Percent speed: " + percentSpeed);
+		
 		while (isOperatorControl() && isEnabled()) {
-		
-		
-			driveTrain.tankDrive(-leftStick.getY(), -rightStick.getY());
+			
+			driveTrain.tankDrive(-leftStick.getY() * percentSpeed, -rightStick.getY() * percentSpeed);
 			driveTrain.update();
-			driveTrain.printEncoders();
+			//driveTrain.printEncoders();
 
 			stateMap.update();
 			shooter.update();
@@ -129,7 +137,7 @@ public class Robot extends SampleRobot {
 					shooter.fire();
 				}
 			}
-
+/*
 			if (redButton.get()) { 
 				redVal = addColor(redVal);
 			}
@@ -140,9 +148,9 @@ public class Robot extends SampleRobot {
 			if (blueButton.get()) {
 				blueVal = addColor(blueVal);
 			}
-
+*/
 			
-			
+/*		
 		if (hasSent == false) {
 				for (int i = 0; i < 8; i++) {
 					lightControl(i, 0, 0, 0);
@@ -156,6 +164,7 @@ public class Robot extends SampleRobot {
 				//hasSent = true;
 
 		}
+		*/
 		}
 		shooter.setState(Shooter.State.DISABLE);
 	}

@@ -8347,3 +8347,147 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 18:37:18.803
 !MESSAGE Installedjava
+!SESSION 2016-06-29 19:54:43.056 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_72
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-06-29 19:55:01.369
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Wake Robotics Member'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 19:55:02.189
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 19:55:02.201
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 19:55:02.206
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 19:55:02.259
+!MESSAGE Installedcpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 19:55:02.261
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 19:55:02.262
+!MESSAGE Installedjava
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 20:05:27.972
+!MESSAGE [edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4d05b931, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@698d07ac, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@62d59d60, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3c532b97, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5cffd11d, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5d4e0d49, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@13bea51d, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@36142b6e, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@14c16388, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@39c8101c, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5f38dc75, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@48e0d3a7, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@57a22410, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@2e138608, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@37d12ccb, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@79e2bc7d, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3fa695f5, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@d3767cf, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@333ea5d6]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 20:05:27.973
+!MESSAGE [edu.wpi.first.wpilib.plugins.core.wizards.Tag@5f53e698, edu.wpi.first.wpilib.plugins.core.wizards.Tag@54d1c9ba, edu.wpi.first.wpilib.plugins.core.wizards.Tag@626ed5f0, edu.wpi.first.wpilib.plugins.core.wizards.Tag@2438cc7e, edu.wpi.first.wpilib.plugins.core.wizards.Tag@641f9947, edu.wpi.first.wpilib.plugins.core.wizards.Tag@3e590067, edu.wpi.first.wpilib.plugins.core.wizards.Tag@2a0c9309, edu.wpi.first.wpilib.plugins.core.wizards.Tag@4835e10a, edu.wpi.first.wpilib.plugins.core.wizards.Tag@50f88cea, edu.wpi.first.wpilib.plugins.core.wizards.Tag@2654f4aa, edu.wpi.first.wpilib.plugins.core.wizards.Tag@680ebfb2, edu.wpi.first.wpilib.plugins.core.wizards.Tag@f542e08, edu.wpi.first.wpilib.plugins.core.wizards.Tag@1bdf7cd4, edu.wpi.first.wpilib.plugins.core.wizards.Tag@1aaf3aa1, edu.wpi.first.wpilib.plugins.core.wizards.Tag@7c1e569]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 20:06:54.379
+!MESSAGE [edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3a7243e1, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@6ecd9708, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3b477ce8, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@2119bb3d, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@95c89b4, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@b2b3a40, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@b0bb7f1, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@67a725fe, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@adb1197, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@58f0d3b6, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@e124366, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@50c40f8f, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@241eba9, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5c72e534, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@406794af, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@302f535b, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3d3efa54, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@76aef382, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@a10d314]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 20:06:54.380
+!MESSAGE [edu.wpi.first.wpilib.plugins.core.wizards.Tag@406fec86, edu.wpi.first.wpilib.plugins.core.wizards.Tag@ac94285, edu.wpi.first.wpilib.plugins.core.wizards.Tag@bfa82bd, edu.wpi.first.wpilib.plugins.core.wizards.Tag@7fe68a5, edu.wpi.first.wpilib.plugins.core.wizards.Tag@384abf00, edu.wpi.first.wpilib.plugins.core.wizards.Tag@78571fe6, edu.wpi.first.wpilib.plugins.core.wizards.Tag@27e7953b, edu.wpi.first.wpilib.plugins.core.wizards.Tag@53a86a22, edu.wpi.first.wpilib.plugins.core.wizards.Tag@3ef77de8, edu.wpi.first.wpilib.plugins.core.wizards.Tag@7e9ffdff, edu.wpi.first.wpilib.plugins.core.wizards.Tag@65cae15a, edu.wpi.first.wpilib.plugins.core.wizards.Tag@75a37ebb, edu.wpi.first.wpilib.plugins.core.wizards.Tag@703e55da, edu.wpi.first.wpilib.plugins.core.wizards.Tag@714f3e27, edu.wpi.first.wpilib.plugins.core.wizards.Tag@433dd165]
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 20:39:13.515
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Desktop\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 20:39:13.517
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 20:47:10.538
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Desktop\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 20:47:10.539
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 20:49:35.841
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Desktop\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 20:49:35.884
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 20:54:18.992
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Desktop\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 20:54:18.993
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-06-29 21:02:39.107
+!MESSAGE Preferences initialized.
+
+!ENTRY org.eclipse.jface 4 0 2016-06-29 21:02:45.769
+!MESSAGE java.lang.ArrayIndexOutOfBoundsException: -1
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: -1
+	at java.util.ArrayList.elementData(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at edu.wpi.first.wpilib.plugins.core.preferences.ComboFieldEditor.getChoice(ComboFieldEditor.java:30)
+	at edu.wpi.first.wpilib.plugins.core.preferences.ComboFieldEditor.doStore(ComboFieldEditor.java:63)
+	at org.eclipse.jface.preference.FieldEditor.store(FieldEditor.java:683)
+	at org.eclipse.jface.preference.FieldEditorPreferencePage.performOk(FieldEditorPreferencePage.java:344)
+	at edu.wpi.first.wpilib.plugins.core.preferences.WPILibPreferencePage.performOk(WPILibPreferencePage.java:96)
+	at org.eclipse.jface.preference.PreferenceDialog$12.run(PreferenceDialog.java:925)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.JFaceUtil$1.run(JFaceUtil.java:50)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:173)
+	at org.eclipse.jface.preference.PreferenceDialog.okPressed(PreferenceDialog.java:909)
+	at org.eclipse.ui.internal.dialogs.FilteredPreferenceDialog.okPressed(FilteredPreferenceDialog.java:409)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.okPressed(WorkbenchPreferenceDialog.java:168)
+	at org.eclipse.jface.preference.PreferenceDialog.buttonPressed(PreferenceDialog.java:233)
+	at org.eclipse.jface.dialogs.Dialog$2.widgetSelected(Dialog.java:619)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:248)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:827)
+	at org.eclipse.jface.window.Window.open(Window.java:803)
+	at org.eclipse.ui.internal.dialogs.WorkbenchPreferenceDialog.open(WorkbenchPreferenceDialog.java:211)
+	at org.eclipse.ui.internal.OpenPreferencesAction.run(OpenPreferencesAction.java:63)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:473)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:595)
+	at org.eclipse.jface.action.ActionContributionItem.access$2(ActionContributionItem.java:511)
+	at org.eclipse.jface.action.ActionContributionItem$5.handleEvent(ActionContributionItem.java:420)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4362)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4180)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3769)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1127)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1018)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:156)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:654)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:337)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:598)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:139)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:669)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:608)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1515)
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 21:06:57.542
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Desktop\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 21:06:57.543
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 21:09:20.976
+!MESSAGE Running ant file: C:\Users\Wake Robotics Member\Desktop\frc2016competition\CompetitionV1\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2016-06-29 21:09:20.978
+!MESSAGE Targets: deploy, Mode: run
